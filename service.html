@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibemetric Services - AI Marketing Partnership Tiers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #2563EB;
+            --secondary-green: #10B981;
+            --accent-purple: #8B5CF6;
+            --dark-bg: #0F172A;
+            --dark-card: #1E293B;
+            --darker-card: #1A2332;
+            --light-text: #F8FAFC;
+            --gray-text: #CBD5E1;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+            --glow-blue: 0 0 15px rgba(37, 99, 235, 0.5);
+            --glow-purple: 0 0 15px rgba(139, 92, 246, 0.5);
+            --glow-green: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo span {
+            color: var(--secondary-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-links a.active {
+            color: var(--light-text);
+            font-weight: 600;
+        }
+        
+        .cta-button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: var(--glow-blue);
+        }
+        
+        .secondary-button {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--primary-blue);
+            padding: 10px 22px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .secondary-button:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            box-shadow: var(--glow-blue);
+        }
+        
+        /* Hero Section */
+        .services-hero {
+            padding: 150px 0 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .services-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        .services-hero h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--light-text), var(--primary-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .services-hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-text);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Qualification Gate */
+        .qualification-gate {
+            padding: 80px 0;
+        }
+        
+        .gate-container {
+            background-color: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .gate-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .gate-container p {
+            color: var(--gray-text);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .qualification-list {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        
+        .qualification-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .qualification-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .qualification-list li i {
+            color: var(--secondary-green);
+            margin-right: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .gate-message {
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            font-size: 1.1rem;
+            margin-top: 30px;
+        }
+        
+        /* Tiered Services */
+        .tiered-services {
+            padding: 80px 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-text);
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tiers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .tier-card {
+            background-color: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tier-card.featured {
+            border-color: var(--primary-blue);
+            box-shadow: var(--glow-blue);
+        }
+        
+        .tier-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            align-self: flex-start;
+        }
+        
+        .badge-enterprise {
+            background-color: rgba(139, 92, 246, 0.2);
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+        }
+        
+        .badge-growth {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--secondary-green);
+            border: 1px solid var(--secondary-green);
+        }
+        
+        .badge-starter {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+        
+        .tier-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .tier-for {
+            color: var(--gray-text);
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--light-text);
+        }
+        
+        .tier-term {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        
+        .tier-features {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+        
+        .tier-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .tier-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .tier-features li i {
+            color: var(--secondary-green);
+            margin-right: 12px;
+            font-size: 1rem;
+        }
+        
+        .tier-feature-disabled {
+            color: var(--gray-text);
+            opacity: 0.6;
+        }
+        
+        .tier-feature-disabled i {
+            color: #6B7280 !important;
+        }
+        
+        .tier-button {
+            margin-top: auto;
+        }
+        
+        /* Service Comparison Table */
+        .service-comparison {
+            padding: 80px 0;
+        }
+        
+        .comparison-container {
+            background-color: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+        
+        .comparison-table th {
+            text-align: center;
+            padding: 20px 15px;
+            font-weight: 700;
+            color: var(--light-text);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table td {
+            padding: 20px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .feature-cell {
+            text-align: left !important;
+            font-weight: 600;
+            color: var(--light-text);
+            width: 200px;
+        }
+        
+        .tier-cell {
+            font-weight: 600;
+        }
+        
+        .tier-cell.campaign {
+            color: var(--primary-blue);
+        }
+        
+        .tier-cell.growth {
+            color: var(--secondary-green);
+        }
+        
+        .tier-cell.enterprise {
+            color: var(--accent-purple);
+        }
+        
+        .check-icon {
+            color: var(--secondary-green);
+            font-size: 1.2rem;
+        }
+        
+        .dash-icon {
+            color: #6B7280;
+            font-size: 1.2rem;
+        }
+        
+        /* Implementation Process */
+        .implementation-process {
+            padding: 80px 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .process-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            background-color: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 35px;
+            width: 220px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(37, 99, 235, 0.2);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 auto 25px;
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--light-text);
+        }
+        
+        .process-step p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+        
+        .step-connector {
+            display: none;
+        }
+        
+        @media (min-width: 992px) {
+            .process-step {
+                width: 230px;
+            }
+            
+            .step-connector {
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: -30px;
+                width: 30px;
+                height: 2px;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            .process-step:last-child .step-connector {
+                display: none;
+            }
+        }
+        
+        .process-cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        /* Next Steps CTA */
+        .next-steps {
+            padding: 80px 0;
+        }
+        
+        .steps-container {
+            background-color: var(--dark-card);
+            border-radius: var(--border-radius);
+            padding: 60px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .steps-container h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .steps-container p {
+            color: var(--gray-text);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .steps-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            color: var(--gray-text);
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--dark-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1100px) {
+            .services-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .tier-card {
+                width: 320px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .gate-container {
+                padding: 40px 30px;
+            }
+            
+            .tiers-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tier-card {
+                width: 100%;
+                max-width: 450px;
+            }
+            
+            .comparison-container {
+                padding: 30px 20px;
+            }
+            
+            .process-step {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .step-connector {
+                display: none;
+            }
+            
+            .steps-container {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .services-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .gate-container {
+                padding: 30px 20px;
+            }
+            
+            .qualification-list li {
+                font-size: 1rem;
+            }
+            
+            .tier-card {
+                padding: 35px 25px;
+            }
+            
+            .tier-price {
+                font-size: 2.2rem;
+            }
+            
+            .process-step {
+                padding: 30px 25px;
+            }
+            
+            .steps-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .steps-buttons button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .services-hero {
+                padding: 130px 0 50px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Vibe<span>metric</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="#" class="active">Services</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                <button class="cta-button" id="header-cta">Get AI Audit</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-bg"></div>
+        <div class="container">
+            <h1>Choose Your AI Partnership Level</h1>
+            <p class="services-hero-subtitle">We deliver maximum value to businesses that are ready to grow with AI-powered marketing automation</p>
+        </div>
+    </section>
+
+    <!-- Qualification Gate -->
+    <section class="qualification-gate">
+        <div class="container">
+            <div class="gate-container">
+                <h2>We Deliver Maximum Value to Businesses That Are Ready to Grow</h2>
+                <p>To ensure we can deliver exceptional results, we work with businesses that meet the following criteria:</p>
+                
+                <ul class="qualification-list">
+                    <li><i class="fas fa-check-circle"></i> Minimum $4,000 monthly revenue</li>
+                    <li><i class="fas fa-check-circle"></i> Existing digital marketing activities</li>
+                    <li><i class="fas fa-check-circle"></i> 3+ month commitment for measurable results</li>
+                    <li><i class="fas fa-check-circle"></i> Decision-maker availability for monthly reviews</li>
+                </ul>
+                
+                <div class="gate-message">
+                    <p>If this describes your business, explore our partnership models below.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiered Services -->
+    <section class="tiered-services">
+        <div class="container">
+            <h2 class="section-title">Select Your AI Partnership Tier</h2>
+            <p class="section-subtitle">Each tier is designed for businesses at different growth stages with specific needs and goals</p>
+            
+            <div class="tiers-container">
+                <!-- Tier 3 - AI In-House Team -->
+                <div class="tier-card featured">
+                    <div class="tier-badge badge-enterprise">
+                        <i class="fas fa-crown"></i> ENTERPRISE TIER
+                    </div>
+                    <h3>AI In-House Team</h3>
+                    <p class="tier-for">For established businesses with $20K+ monthly revenue looking for a complete marketing transformation</p>
+                    
+                    <div class="tier-price">$2,500-$5,300<span style="font-size: 1rem; color: var(--gray-text);">/month</span></div>
+                    <p class="tier-term">Minimum 12-month commitment</p>
+                    
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Dedicated AI Marketing Manager</li>
+                        <li><i class="fas fa-check"></i> Full AI Content & Creative Team</li>
+                        <li><i class="fas fa-check"></i> Predictive Analytics Dashboard</li>
+                        <li><i class="fas fa-check"></i> Monthly Strategy Sessions</li>
+                        <li><i class="fas fa-check"></i> Unlimited Campaign Execution*</li>
+                        <li><i class="fas fa-check"></i> Priority Support & Escalation</li>
+                        <li><i class="fas fa-check"></i> Custom AI Agent Development</li>
+                    </ul>
+                    
+                    <div class="tier-button">
+                        <button class="cta-button" style="width: 100%;" data-tier="enterprise">
+                            <i class="fas fa-calendar-check"></i> Book Enterprise Discovery Call
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tier 2 - Growth Partner -->
+                <div class="tier-card">
+                    <div class="tier-badge badge-growth">
+                        <i class="fas fa-chart-line"></i> GROWTH TIER
+                    </div>
+                    <h3>Growth Partner</h3>
+                    <p class="tier-for">For scaling businesses with $10K-$20K monthly revenue ready to accelerate growth with AI automation</p>
+                    
+                    <div class="tier-price">$1,700-$3,200<span style="font-size: 1rem; color: var(--gray-text);">/month</span></div>
+                    <p class="tier-term">Minimum 6-month commitment</p>
+                    
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Growth Dashboard Access</li>
+                        <li><i class="fas fa-check"></i> Multi-channel Strategy</li>
+                        <li><i class="fas fa-check"></i> AI Optimization & Automation</li>
+                        <li><i class="fas fa-check"></i> Bi-weekly Review Sessions</li>
+                        <li><i class="fas fa-check"></i> Up to 5 Active Campaigns</li>
+                        <li><i class="fas fa-check"></i> Standard Support</li>
+                        <li class="tier-feature-disabled"><i class="fas fa-minus"></i> Custom AI Agent Development</li>
+                    </ul>
+                    
+                    <div class="tier-button">
+                        <button class="cta-button" style="width: 100%;" data-tier="growth">
+                            <i class="fas fa-calendar-alt"></i> Schedule Growth Assessment
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tier 1 - AI Campaign Boost -->
+                <div class="tier-card">
+                    <div class="tier-badge badge-starter">
+                        <i class="fas fa-rocket"></i> STARTER TIER
+                    </div>
+                    <h3>AI Campaign Boost</h3>
+                    <p class="tier-for">For businesses with $4K+ monthly revenue wanting to test AI marketing or tackle specific projects</p>
+                    
+                    <div class="tier-price">$740-$1,270<span style="font-size: 1rem; color: var(--gray-text);">/campaign</span></div>
+                    <p class="tier-term">Minimum 1 campaign</p>
+                    
+                    <ul class="tier-features">
+                        <li><i class="fas fa-check"></i> Targeted Campaign Strategy</li>
+                        <li><i class="fas fa-check"></i> AI Execution & Optimization</li>
+                        <li><i class="fas fa-check"></i> Detailed Performance Report</li>
+                        <li><i class="fas fa-check"></i> 30-day Implementation Support</li>
+                        <li class="tier-feature-disabled"><i class="fas fa-minus"></i> Ongoing Campaign Management</li>
+                        <li class="tier-feature-disabled"><i class="fas fa-minus"></i> Regular Strategy Sessions</li>
+                        <li class="tier-feature-disabled"><i class="fas fa-minus"></i> Custom AI Agent Development</li>
+                    </ul>
+                    
+                    <div class="tier-button">
+                        <button class="cta-button" style="width: 100%;" data-tier="starter">
+                            <i class="fas fa-search"></i> Start Campaign Audit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--gray-text); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> All plans include our 4-layer AI Engine technology, PDPA-compliant data security, and integration with your existing tools.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Comparison Table -->
+    <section class="service-comparison">
+        <div class="container">
+            <h2 class="section-title">Service Comparison</h2>
+            <p class="section-subtitle">Compare features across our three partnership tiers to find the right fit for your business</p>
+            
+            <div class="comparison-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-cell">Feature</th>
+                            <th class="tier-cell campaign">Campaign Boost</th>
+                            <th class="tier-cell growth">Growth Partner</th>
+                            <th class="tier-cell enterprise">AI In-House Team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-cell">Team Access</td>
+                            <td>Campaign Manager</td>
+                            <td>Growth Manager</td>
+                            <td>Full AI Team</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Automation Level</td>
+                            <td>60%</td>
+                            <td>75%</td>
+                            <td>85%+</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Strategy Sessions</td>
+                            <td>Campaign only</td>
+                            <td>Bi-weekly</td>
+                            <td>Weekly</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Dashboard Access</td>
+                            <td>Campaign reports</td>
+                            <td>Growth dashboard</td>
+                            <td>Full platform</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Campaign Limit</td>
+                            <td>1 campaign</td>
+                            <td>Up to 5 active</td>
+                            <td>Unlimited*</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">AI Agent Access</td>
+                            <td><i class="fas fa-minus dash-icon"></i></td>
+                            <td>Standard agents</td>
+                            <td>Custom agents</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Support Level</td>
+                            <td>30-day support</td>
+                            <td>Standard</td>
+                            <td>Priority 24/7</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Best For</td>
+                            <td>Testing & specific projects</td>
+                            <td>Scaling businesses</td>
+                            <td>Marketing transformation</td>
+                        </tr>
+                        <tr>
+                            <td class="feature-cell">Minimum Term</td>
+                            <td>1 campaign</td>
+                            <td>6 months</td>
+                            <td>12 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Process -->
+    <section class="implementation-process">
+        <div class="container">
+            <h2 class="section-title">Our 4-Phase Implementation Process</h2>
+            <p class="section-subtitle">A structured approach to ensure successful AI marketing implementation and maximum ROI</p>
+            
+            <div class="process-container">
+                <div class="process-steps">
+                    <!-- Phase 1 -->
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Audit & Strategy</h3>
+                        <p>Complete business & tech audit, AI system configuration, KPI & goal setting</p>
+                        <div class="step-connector"></div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>System Setup</h3>
+                        <p>Integration with existing tools, AI agent training, workflow automation setup</p>
+                        <div class="step-connector"></div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Execution & Optimization</h3>
+                        <p>Campaign launch, real-time optimization, performance monitoring & adjustment</p>
+                        <div class="step-connector"></div>
+                    </div>
+                    
+                    <!-- Phase 4 -->
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Scale & Automate</h3>
+                        <p>System refinement, scaling successful strategies, predictive optimization</p>
+                    </div>
+                </div>
+                
+                <div class="process-cta">
+                    <button class="secondary-button" id="timeline-btn">
+                        <i class="fas fa-download"></i> See Detailed Implementation Timeline
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps CTA -->
+    <section class="next-steps">
+        <div class="container">
+            <div class="steps-container">
+                <h2>Ready to Transform Your Marketing with AI?</h2>
+                <p>Take the next step in your growth journey. Book a consultation to discuss which partnership tier is right for your business.</p>
+                
+                <div class="steps-buttons">
+                    <button class="cta-button" id="consultation-btn">
+                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                    </button>
+                    <button class="secondary-button" id="roi-calculator-btn">
+                        <i class="fas fa-calculator"></i> Calculate Your Potential ROI
+                    </button>
+                </div>
+                
+                <div style="margin-top: 40px; padding: 20px; background-color: rgba(255, 255, 255, 0.05); border-radius: var(--border-radius);">
+                    <p style="font-size: 0.9rem; color: var(--gray-text);">
+                        <i class="fas fa-clock"></i> Average implementation timeline: 30-45 days from onboarding to full automation
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>VIBEMETRIC</h4>
+                    <p style="color: var(--gray-text); margin-bottom: 20px;">Human Strategy, AI Execution, Maximum Growth</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>QUICK LINKS</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="technology.html">Technology</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>SERVICES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI In-House Team</a></li>
+                        <li><a href="#">Growth Partner</a></li>
+                        <li><a href="#">AI Campaign Boost</a></li>
+                        <li><a href="#">Implementation Process</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>CONTACT</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.com</p>
+                        <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Vibemetric. All rights reserved. | Minimum $4K monthly revenue required for services | PDPA Compliant</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header CTA button
+            document.getElementById('header-cta').addEventListener('click', function() {
+                alert('Redirecting to AI Audit booking form...');
+            });
+            
+            // Tier card buttons
+            document.querySelectorAll('.tier-button .cta-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tier = this.getAttribute('data-tier');
+                    let tierName = '';
+                    let bookingType = '';
+                    
+                    if (tier === 'enterprise') {
+                        tierName = 'AI In-House Team (Enterprise)';
+                        bookingType = 'Enterprise Discovery Call';
+                    } else if (tier === 'growth') {
+                        tierName = 'Growth Partner';
+                        bookingType = 'Growth Assessment';
+                    } else {
+                        tierName = 'AI Campaign Boost';
+                        bookingType = 'Campaign Audit';
+                    }
+                    
+                    alert(`Booking ${bookingType} for ${tierName} tier...\n\nYou will be redirected to our booking system.`);
+                    
+                    // In a real implementation, this would redirect to a booking form
+                    // window.location.href = `/book-${tier}.html`;
+                });
+            });
+            
+            // Implementation timeline button
+            document.getElementById('timeline-btn').addEventListener('click', function() {
+                alert('Downloading detailed implementation timeline PDF...');
+                // In a real implementation, this would trigger a PDF download
+            });
+            
+            // Next steps buttons
+            document.getElementById('consultation-btn').addEventListener('click', function() {
+                // Check if user qualifies
+                const qualified = confirm("Do you meet our qualification criteria?\n\n1. Minimum $4,000 monthly revenue\n2. Existing digital marketing activities\n3. 3+ month commitment\n4. Decision-maker availability\n\nClick OK if you meet all criteria, or Cancel to learn more.");
+                
+                if (qualified) {
+                    alert("Perfect! Redirecting to consultation booking form...");
+                    // In a real implementation, redirect to booking form
+                } else {
+                    alert("Let us help you prepare for AI marketing. We'll redirect you to our qualification guide.");
+                    // In a real implementation, redirect to resources page
+                }
+            });
+            
+            document.getElementById('roi-calculator-btn').addEventListener('click', function() {
+                alert("Opening ROI Calculator...");
+                // In a real implementation, open ROI calculator modal or redirect
+            });
+            
+            // Add hover effects to tier cards
+            const tierCards = document.querySelectorAll('.tier-card');
+            tierCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Remove featured class from all cards
+                    tierCards.forEach(c => c.classList.remove('featured'));
+                    // Add featured class to hovered card
+                    this.classList.add('featured');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    // Only remove featured if it's not the enterprise card
+                    if (!this.querySelector('.badge-enterprise')) {
+                        this.classList.remove('featured');
+                        // Re-add featured to enterprise card
+                        document.querySelector('.badge-enterprise').closest('.tier-card').classList.add('featured');
+                    }
+                });
+            });
+            
+            // Animate process steps on scroll
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe process steps
+            document.querySelectorAll('.process-step').forEach(step => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateY(20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(step);
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
