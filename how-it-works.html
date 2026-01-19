@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works | VibeMetric.io - AI-Powered Creative System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .page-hero h1 span {
+            color: var(--primary);
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 5-Tier System */
+        .tiers-system {
+            background-color: var(--light-gray);
+        }
+
+        .tier-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tier-number {
+            background-color: var(--primary);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tier-content {
+            flex: 1;
+        }
+
+        .tier-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .tier-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .tier-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tier-feature {
+            background-color: var(--light-gray);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        /* Performance Loop */
+        .loop-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .loop-step {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .loop-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .loop-step::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 40px;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+
+        .loop-step:last-child::before {
+            display: none;
+        }
+
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .step-content p {
+            color: var(--gray);
+        }
+
+        /* Dual Team System */
+        .dual-team {
+            background-color: var(--light-gray);
+        }
+
+        .team-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-card.tech-card {
+            border-top: 5px solid var(--primary);
+        }
+
+        .team-card.creative-card {
+            border-top: 5px solid var(--secondary);
+        }
+
+        .team-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .team-card.creative-card .team-icon {
+            color: var(--secondary);
+        }
+
+        .team-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .team-roles {
+            text-align: left;
+        }
+
+        .role {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .role-icon {
+            background-color: var(--light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .creative-card .role-icon {
+            color: var(--secondary);
+        }
+
+        .role-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .role-text p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        /* 90-Day Journey */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: var(--primary);
+            z-index: 1;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            width: 45%;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            border: 4px solid white;
+            z-index: 3;
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .timeline-phase {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .timeline-duration {
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .timeline-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .timeline-features {
+            list-style: none;
+        }
+
+        .timeline-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .timeline-features li i {
+            color: var(--secondary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            background-color: var(--light-gray);
+        }
+
+        .demo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .demo-content h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .demo-content p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .demo-video {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: var(--radius);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-video::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 40px;
+            }
+            
+            .team-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start !important;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-marker {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .tier-card {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .loop-step {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero {
+                padding: 140px 0 60px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .tier-card, .loop-step, .team-card, .timeline-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">Vibe<span>Metric</span>.io</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works" class="active">How It Works</a>
+                    <a href="/packages">Packages</a>
+                    <a href="/proof">Proof</a>
+                    <a href="/book-audit" class="nav-cta">Book Free Audit</a>
+                </div>
+                
+                <a href="/book-audit" class="nav-cta desktop-only">Book Free Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>How It Works</span>
+            </div>
+            
+            <h1>The System That Turns <span>Creativity Into Revenue</span></h1>
+            <p>No execution gaps. No black-box agencies. Just a client-controlled creative system that compounds results every month.</p>
+            
+            <div style="margin-top: 40px;">
+                <a href="#system" class="btn-white" style="margin-right: 15px;">
+                    <i class="fas fa-layer-group"></i> 5-Tier System
+                </a>
+                <a href="#demo" class="btn-white" style="background-color: transparent; border: 2px solid white;">
+                    <i class="fas fa-play-circle"></i> Watch Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5-Tier System -->
+    <section class="tiers-system" id="system">
+        <div class="container">
+            <div class="section-title">
+                <h2>The VibeMetric Creative System: 5 Engineered Tiers</h2>
+                <p>Built like a creative pyramid: Starting from the peak (Brand Experience) down to the solid foundation</p>
+            </div>
+            
+            <!-- Tier 5 -->
+            <div class="tier-card">
+                <div class="tier-number">5</div>
+                <div class="tier-content">
+                    <h3>Brand Experience & Storytelling</h3>
+                    <p>Shape emotions and brand identity for the Malaysian market with culturally-relevant storytelling and consistent brand voice across all touchpoints.</p>
+                    <div class="tier-features">
+                        <span class="tier-feature">Brand Voice Development</span>
+                        <span class="tier-feature">Multi-channel Storytelling</span>
+                        <span class="tier-feature">Customer Experience Design</span>
+                        <span class="tier-feature">Cultural Adaptation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tier 4 -->
+            <div class="tier-card">
+                <div class="tier-number">4</div>
+                <div class="tier-content">
+                    <h3>Creative Content Strategy</h3>
+                    <p>Multi-format content creation tailored to Malaysian culture and audience preferences, with strategic distribution across platforms.</p>
+                    <div class="tier-features">
+                        <span class="tier-feature">Content Calendar Planning</span>
+                        <span class="tier-feature">Multi-format Production</span>
+                        <span class="tier-feature">AI-Assisted Creation</span>
+                        <span class="tier-feature">Seasonal Campaigns</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tier 3 -->
+            <div class="tier-card">
+                <div class="tier-number">3</div>
+                <div class="tier-content">
+                    <h3>AI-Augmented Creativity</h3>
+                    <p>Combine artificial intelligence with human creative intuition to scale production while maintaining quality and brand consistency.</p>
+                    <div class="tier-features">
+                        <span class="tier-feature">AI Campaign Ideation</span>
+                        <span class="tier-feature">Creative Automation</span>
+                        <span class="tier-feature">Real-time Optimization</span>
+                        <span class="tier-feature">n8n Workflows</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tier 2 -->
+            <div class="tier-card">
+                <div class="tier-number">2</div>
+                <div class="tier-content">
+                    <h3>Multi-Channel Creative Execution</h3>
+                    <p>Bring creativity to life across all platforms with optimized content formats for each channel and audience segment.</p>
+                    <div class="tier-features">
+                        <span class="tier-feature">Paid Social Campaigns</span>
+                        <span class="tier-feature">Organic Social Strategy</span>
+                        <span class="tier-feature">Email Marketing Automation</span>
+                        <span class="tier-feature">Platform Optimization</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tier 1 -->
+            <div class="tier-card">
+                <div class="tier-number">1</div>
+                <div class="tier-content">
+                    <h3>Creative Data Foundation</h3>
+                    <p>Solid foundation for all creative decisions with clean data tracking, cultural insights, and performance measurement.</p>
+                    <div class="tier-features">
+                        <span class="tier-feature">Trend Analysis</span>
+                        <span class="tier-feature">Customer Profiling</span>
+                        <span class="tier-feature">Performance Measurement</span>
+                        <span class="tier-feature">Asset Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Loop -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>The Client-Controlled Performance Loop</h2>
+                <p>Runs every month — guaranteed. Your creative strategy → execution → results → optimization cycle</p>
+            </div>
+            
+            <div class="loop-container">
+                <!-- Step 1 -->
+                <div class="loop-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Insight & Strategy Development</h3>
+                        <p>AI analyzes market data + team develops culturally-relevant creative strategy → data-backed monthly action plan tailored for Malaysian audience.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="loop-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Creative Automation Blueprint</h3>
+                        <p>Strategic plan → converted into permanent n8n automation workflows that handle repetitive creative tasks, ensuring consistency and efficiency.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="loop-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Execution & Direct Management</h3>
+                        <p>Embedded team works directly in your social accounts, CMS, and CRM until KPIs are hit. Your role: Direct management via WhatsApp & Slack with 100% visibility.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="loop-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Review & Pivot — Zero Cost</h3>
+                        <p>Comprehensive performance review → feedback → we rebuild strategy and automation completely at zero extra cost. No pivot fees, ever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Team System -->
+    <section class="dual-team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Where Technology Meets Creative Expertise</h2>
+                <p>You don't have to choose between cheap automation and expensive strategy. You get both — perfectly balanced.</p>
+            </div>
+            
+            <div class="team-cards">
+                <!-- Technology Team -->
+                <div class="team-card tech-card">
+                    <div class="team-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>The Technology Engine</h3>
+                    <p><strong>The HOW:</strong> Guarantees speed, data accuracy, and cost-efficiency. This is the machinery that makes everything run smoothly, accurately, and at scale.</p>
+                    
+                    <div class="team-roles">
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Senior AI & Automation Engineer</h4>
+                                <p>Builds & maintains n8n workflows and AI creative systems</p>
+                            </div>
+                        </div>
+                        
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Creative Ops Analyst</h4>
+                                <p>Data synchronization, attribution modeling, performance reporting</p>
+                            </div>
+                        </div>
+                        
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Data Scientist</h4>
+                                <p>Predictive models & creative performance forecasting</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                        <p style="font-weight: 600; color: var(--primary);">Reduces creative overhead by up to 70%</p>
+                    </div>
+                </div>
+                
+                <!-- Creative Team -->
+                <div class="team-card creative-card">
+                    <div class="team-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>The Creative Brain</h3>
+                    <p><strong>The WHAT:</strong> Guarantees brand alignment, creative quality, and cultural relevance. This is the creative thinking that ensures every pixel and word supports your brand voice & business goals.</p>
+                    
+                    <div class="team-roles">
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-chess-queen"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Account Strategist</h4>
+                                <p>Your main point of contact & strategy lead</p>
+                            </div>
+                        </div>
+                        
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-pen-fancy"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Brand Storyteller</h4>
+                                <p>Messaging, content development, brand voice</p>
+                            </div>
+                        </div>
+                        
+                        <div class="role">
+                            <div class="role-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="role-text">
+                                <h4>Creative Director</h4>
+                                <p>Visual identity & campaign creative direction</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border);">
+                        <p style="font-weight: 600; color: var(--secondary);">Every pixel & word supports your brand voice & revenue goals</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background-color: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                <h3 style="font-size: 24px; margin-bottom: 15px;">Result: Perfectly Balanced Creative System</h3>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">You get a system where technology handles the heavy lifting and repetitive tasks, while creative experts ensure everything aligns with your brand identity and resonates with your Malaysian audience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 90-Day Journey -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Your First 90 Days: From Setup to Creative Scale</h2>
+                <p>Here's exactly what happens from day 1 to day 90</p>
+            </div>
+            
+            <div class="timeline">
+                <!-- Week 1-2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-phase">Foundation & Integration</span>
+                            <span class="timeline-duration">Week 1-2</span>
+                        </div>
+                        <h3>Brand Discovery & System Setup</h3>
+                        <ul class="timeline-features">
+                            <li><i class="fas fa-check-circle"></i> Complete brand audit & creative assessment</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp/Slack integration & team onboarding</li>
+                            <li><i class="fas fa-check-circle"></i> Initial strategy session with AI trend analysis</li>
+                            <li><i class="fas fa-check-circle"></i> First n8n creative automation workflows deployed</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Week 3-4 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-phase">Creative Launch</span>
+                            <span class="timeline-duration">Week 3-4</span>
+                        </div>
+                        <h3>First Campaigns & Performance Tracking</h3>
+                        <ul class="timeline-features">
+                            <li><i class="fas fa-check-circle"></i> First creative campaigns live (social, content, email)</li>
+                            <li><i class="fas fa-check-circle"></i> Daily creative performance monitoring begins</li>
+                            <li><i class="fas fa-check-circle"></i> Weekly check-in cadence established</li>
+                            <li><i class="fas fa-check-circle"></i> Initial optimization based on early data</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Month 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-phase">Optimization & Scale</span>
+                            <span class="timeline-duration">Month 2</span>
+                        </div>
+                        <h3>Performance Review & Creative Expansion</h3>
+                        <ul class="timeline-features">
+                            <li><i class="fas fa-check-circle"></i> Comprehensive creative performance review</li>
+                            <li><i class="fas fa-check-circle"></i> Scale winning content formats & strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced creative automation workflows added</li>
+                            <li><i class="fas fa-check-circle"></i> Creative LTV modeling begins</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Month 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-phase">System Mastery</span>
+                            <span class="timeline-duration">Month 3</span>
+                        </div>
+                        <h3>Full System Optimization & Future Planning</h3>
+                        <ul class="timeline-features">
+                            <li><i class="fas fa-check-circle"></i> Full creative system optimization complete</li>
+                            <li><i class="fas fa-check-circle"></i> Quarterly creative strategy planning session</li>
+                            <li><i class="fas fa-check-circle"></i> Team working at peak creative efficiency</li>
+                            <li><i class="fas fa-check-circle"></i> Predictable, scalable creative growth achieved</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <h3>See The Creative System In Action</h3>
+                    <p>Watch our actual n8n creative automation workflows and AI content generation tools in action. See exactly how the system works before you commit.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="/book-audit" class="btn-white" style="background-color: var(--primary); color: white; margin-right: 15px;">
+                            <i class="fas fa-calendar-check"></i> Book Live Demo
+                        </a>
+                        <a href="/proof" class="btn-white" style="background-color: transparent; color: var(--primary); border: 2px solid var(--primary);">
+                            <i class="fas fa-chart-bar"></i> See Case Studies
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="demo-video">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div style="position: relative; z-index: 1; text-align: center;">
+                        <div style="font-size: 18px; margin-bottom: 10px;">3-Minute System Walkthrough</div>
+                        <div style="font-size: 14px; opacity: 0.9;">Creative Automation & AI Workflows</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Run This Creative System for Your Business?</h2>
+                <p>Book a free 30-minute audit and we'll show you exactly how these 5 tiers + performance loop apply to your creative challenges and growth goals.</p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="/book-audit" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i> Book My Free Audit & Custom Roadmap
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                    <i class="fas fa-shield-alt"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day creative plan
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VibeMetric.io</h3>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">AI-powered creative system for Malaysian SMEs. 24/7 coverage with GMT+8 business hours overlap.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/proof">Proof</a></li>
+                        <li><a href="/book-audit">Book Free Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>System Details</h3>
+                    <ul class="footer-links">
+                        <li><a href="/how-it-works#system">5-Tier Creative System</a></li>
+                        <li><a href="/how-it-works#demo">Performance Loop</a></li>
+                        <li><a href="#90-day-journey">90-Day Timeline</a></li>
+                        <li><a href="/proof">n8n Automation</a></li>
+                        <li><a href="/proof">AI Integration</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.io</p>
+                        <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
+                        <p><i class="fab fa-whatsapp"></i> +60 12-XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Based in Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 VibeMetric.io. All rights reserved. • Pivot Guarantee included in all packages. • 30-Day Risk-Free Trial for qualified clients.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '1000';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (window.innerWidth <= 992 && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Play button functionality
+        document.querySelector('.play-button').addEventListener('click', function() {
+            alert('In a real implementation, this would open a video modal or redirect to a demo video page.');
+            // This could be replaced with actual video modal code
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('navLinks').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Update year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', new Date().getFullYear());
+            }
+            
+            // Add active class to current page in mobile menu
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

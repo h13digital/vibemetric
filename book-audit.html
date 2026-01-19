@@ -3,1430 +3,1417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book AI Marketing Demo - Vibemetric</title>
+    <title>Book Free Audit | VibeMetric.io - Creative System Consultation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #2563EB;
-            --secondary-green: #10B981;
-            --accent-purple: #8B5CF6;
-            --dark-bg: #0F172A;
-            --dark-card: #1E293B;
-            --darker-card: #1A2332;
-            --light-text: #F8FAFC;
-            --gray-text: #CBD5E1;
-            --border-radius: 12px;
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --secondary: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
             --transition: all 0.3s ease;
-            --glow-blue: 0 0 15px rgba(37, 99, 235, 0.5);
-            --glow-green: 0 0 15px rgba(16, 185, 129, 0.5);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #ffffff;
         }
-        
+
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header */
-        .header {
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
+            width: 100%;
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        
-        .header-content {
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
-        
+
         .logo span {
-            color: var(--secondary-green);
+            color: var(--secondary);
         }
-        
+
         .nav-links {
             display: flex;
-            list-style: none;
+            gap: 30px;
         }
-        
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
+
         .nav-links a {
-            color: var(--gray-text);
             text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.95rem;
         }
-        
+
         .nav-links a:hover {
-            color: var(--primary-blue);
+            color: var(--primary);
         }
-        
+
         .nav-links a.active {
-            color: var(--light-text);
+            color: var(--primary);
             font-weight: 600;
         }
-        
-        .cta-button {
-            background-color: var(--primary-blue);
+
+        .nav-cta {
+            background-color: var(--primary);
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
             transition: var(--transition);
-            font-size: 0.95rem;
         }
-        
-        .cta-button:hover {
-            background-color: #1D4ED8;
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: var(--glow-blue);
         }
-        
-        .secondary-button {
-            background-color: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--primary-blue);
-            padding: 10px 22px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
             cursor: pointer;
-            transition: var(--transition);
         }
-        
-        .secondary-button:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-            box-shadow: var(--glow-blue);
-        }
-        
+
         /* Hero Section */
-        .booking-hero {
-            padding: 150px 0 60px;
-            position: relative;
-            overflow: hidden;
+        .page-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
             text-align: center;
         }
-        
-        .booking-hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
-            z-index: -1;
-        }
-        
-        .booking-hero h1 {
-            font-size: 3.2rem;
-            font-weight: 900;
-            line-height: 1.1;
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--light-text), var(--primary-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--dark);
         }
-        
-        .booking-hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--gray-text);
-            margin-bottom: 40px;
+
+        .page-hero h1 span {
+            color: var(--primary);
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: var(--gray);
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 40px;
         }
-        
-        /* Booking Flow */
-        .booking-flow {
-            padding: 40px 0 80px;
-        }
-        
-        .flow-container {
+
+        .breadcrumb {
             display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 1000px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Qualification Score */
+        .qualification-section {
+            padding: 80px 0 40px;
+            background-color: white;
+        }
+
+        .qualification-container {
+            max-width: 800px;
             margin: 0 auto;
         }
-        
-        .flow-step {
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            position: relative;
-        }
-        
-        .step-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(37, 99, 235, 0.2);
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-right: 20px;
-            border: 2px solid var(--primary-blue);
-        }
-        
-        .step-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light-text);
-        }
-        
-        .step-description {
-            color: var(--gray-text);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-        
-        /* Qualification Gate */
-        .qualification-gate {
-            padding: 30px;
-            background-color: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: var(--border-radius);
-            margin-bottom: 30px;
-        }
-        
-        .gate-checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .checkbox-item {
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .checkbox-item input[type="checkbox"] {
-            margin-right: 15px;
-            margin-top: 5px;
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            accent-color: var(--secondary-green);
-        }
-        
-        .checkbox-item label {
-            font-size: 1rem;
-            color: var(--light-text);
-            cursor: pointer;
-        }
-        
-        .gate-result {
-            display: none;
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-top: 20px;
+
+        .score-title {
             text-align: center;
-        }
-        
-        .gate-success {
-            background-color: rgba(16, 185, 129, 0.2);
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            color: var(--light-text);
-        }
-        
-        .gate-failure {
-            background-color: rgba(239, 68, 68, 0.2);
-            border: 1px solid rgba(239, 68, 68, 0.4);
-            color: var(--light-text);
-        }
-        
-        /* Smart Booking Form */
-        .smart-booking-form {
-            padding: 40px 0;
-        }
-        
-        .form-section {
             margin-bottom: 40px;
         }
-        
-        .section-title {
-            font-size: 1.4rem;
+
+        .score-title h2 {
+            font-size: 36px;
             font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--light-text);
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 16px;
+            color: var(--dark);
         }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 25px;
+
+        .score-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
+
+        .score-indicator {
+            margin-bottom: 60px;
         }
-        
-        .form-group label {
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--light-text);
-        }
-        
-        .form-group label.required::after {
-            content: " *";
-            color: #EF4444;
-        }
-        
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 14px 18px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--light-text);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: var(--transition);
-        }
-        
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .checkbox-option {
-            display: flex;
-            align-items: center;
-        }
-        
-        .checkbox-option input {
-            margin-right: 10px;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-blue);
-        }
-        
-        .checkbox-option label {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            cursor: pointer;
-        }
-        
-        .radio-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        
-        .radio-option {
-            display: flex;
-            align-items: center;
-        }
-        
-        .radio-option input {
-            margin-right: 10px;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-blue);
-        }
-        
-        .radio-option label {
-            font-size: 0.95rem;
-            color: var(--gray-text);
-            cursor: pointer;
-        }
-        
-        /* Demo Types */
-        .demo-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .demo-type-card {
-            background-color: var(--darker-card);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-        
-        .demo-type-card:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-5px);
-        }
-        
-        .demo-type-card.selected {
-            border-color: var(--primary-blue);
-            background-color: rgba(37, 99, 235, 0.1);
-        }
-        
-        .demo-type-icon {
-            font-size: 2rem;
-            color: var(--primary-blue);
+
+        .score-bar {
+            height: 20px;
+            background-color: var(--light-gray);
+            border-radius: 10px;
             margin-bottom: 15px;
+            overflow: hidden;
+            position: relative;
         }
-        
-        .demo-type-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--light-text);
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--danger) 0%, var(--warning) 33%, var(--secondary) 66%, var(--primary) 100%);
+            width: 0%;
+            transition: width 1.5s ease;
+            border-radius: 10px;
         }
-        
-        .demo-type-card p {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-        }
-        
-        /* Form Actions */
-        .form-actions {
+
+        .score-labels {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 10px;
         }
-        
-        /* Routing Results */
-        .routing-results {
-            display: none;
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            margin-top: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        .score-labels span {
+            width: 100px;
             text-align: center;
         }
-        
-        .routing-results.active {
+
+        .score-result {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+            margin-top: 30px;
+            display: none;
+        }
+
+        .score-result.show {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .routing-icon {
-            font-size: 4rem;
-            color: var(--secondary-green);
-            margin-bottom: 20px;
+
+        .score-value {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
         }
-        
-        .routing-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--light-text);
+
+        .score-value.poor {
+            color: var(--danger);
         }
-        
-        .routing-description {
-            color: var(--gray-text);
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .score-value.maybe {
+            color: var(--warning);
         }
-        
-        .routing-details {
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            margin-top: 30px;
-            text-align: left;
+
+        .score-value.good {
+            color: var(--secondary);
         }
-        
-        .routing-details h4 {
-            color: var(--light-text);
+
+        .score-value.excellent {
+            color: var(--primary);
+        }
+
+        .score-message {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 15px;
-            font-size: 1.2rem;
         }
-        
-        .details-list {
-            list-style: none;
+
+        .score-description {
+            color: var(--gray);
         }
-        
-        .details-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+        /* Form Section */
+        .form-section {
+            padding: 40px 0 80px;
+            background-color: white;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .form-header p {
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+
+        .slots-warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            border: 1px solid var(--warning);
+            border-radius: var(--radius);
+            padding: 15px;
+            margin-top: 20px;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
-        
-        .details-list li:last-child {
-            border-bottom: none;
+
+        .slots-warning i {
+            color: var(--warning);
+            font-size: 20px;
         }
-        
-        .details-list li i {
-            color: var(--secondary-green);
-            margin-right: 12px;
-            font-size: 0.9rem;
-        }
-        
-        /* Pre-Call Package */
-        .precall-package {
+
+        .audit-form {
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
             padding: 40px;
-            background-color: rgba(37, 99, 235, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.3);
-            border-radius: var(--border-radius);
-            margin-top: 40px;
         }
-        
-        .precall-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
+
+        .form-group {
+            margin-bottom: 30px;
         }
-        
-        .precall-icon {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-right: 20px;
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
         }
-        
-        .precall-header h3 {
-            font-size: 1.5rem;
-            color: var(--light-text);
+
+        .form-group label span {
+            color: var(--danger);
         }
-        
-        .precall-items {
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="url"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group .help-text {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 8px;
+        }
+
+        .form-section-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 50px 0 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+            color: var(--dark);
+        }
+
+        .radio-group,
+        .checkbox-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 15px;
+            margin-top: 15px;
         }
-        
-        .precall-item {
-            background-color: var(--darker-card);
-            border-radius: var(--border-radius);
-            padding: 20px;
+
+        .radio-option,
+        .checkbox-option {
+            background-color: var(--light-gray);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 15px;
+            cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .precall-item h4 {
-            color: var(--light-text);
+
+        .radio-option:hover,
+        .checkbox-option:hover {
+            border-color: var(--primary);
+            background-color: rgba(124, 58, 237, 0.05);
+        }
+
+        .radio-option.selected,
+        .checkbox-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(124, 58, 237, 0.1);
+        }
+
+        .radio-option input[type="radio"],
+        .checkbox-option input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--danger);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 40px 0;
+        }
+
+        .warning-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .warning-header i {
+            color: var(--danger);
+            font-size: 24px;
+        }
+
+        .warning-header h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--danger);
+        }
+
+        .warning-content ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .warning-content li {
             margin-bottom: 10px;
-            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
-        
-        .precall-item p {
-            color: var(--gray-text);
-            font-size: 0.9rem;
+
+        .warning-content li i {
+            color: var(--danger);
+            margin-top: 3px;
         }
-        
-        /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.4);
-            padding: 60px 0 30px;
+
+        /* Guarantee Section */
+        .guarantee-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+            text-align: center;
             margin-top: 60px;
         }
-        
-        .footer-content {
+
+        .guarantee-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guarantee-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .guarantee-text {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 40px;
+            border-radius: var(--radius);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        /* Submit Section */
+        .submit-section {
+            text-align: center;
+            padding: 40px 0;
+            background-color: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 50px;
+            border-radius: var(--radius);
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:disabled {
+            background-color: var(--gray);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .privacy-note {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 20px;
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--dark);
+        }
+
+        .modal-icon {
+            font-size: 64px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .modal-message {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .modal-next-steps {
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .modal-next-steps h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .modal-next-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .modal-next-steps li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .modal-next-steps li i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
-        .footer-column h4 {
-            font-size: 1.2rem;
+
+        .footer-col h3 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 20px;
-            color: var(--light-text);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
         }
-        
+
         .footer-links a {
-            color: var(--gray-text);
+            color: #D1D5DB;
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .footer-links a:hover {
-            color: var(--primary-blue);
-        }
-        
-        .footer-contact p {
-            margin-bottom: 15px;
-            color: var(--gray-text);
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--primary-blue);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--dark-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-text);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-blue);
             color: white;
         }
-        
+
+        .footer-contact p {
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray-text);
-            font-size: 0.9rem;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
         }
-        
-        /* Responsive Styles */
-        @media (max-width: 1100px) {
-            .booking-hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-        
+
+        /* Responsive Design */
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
             }
             
-            .booking-hero h1 {
-                font-size: 2.5rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .booking-hero-subtitle {
-                font-size: 1.1rem;
+            .nav-cta {
+                display: none;
             }
             
-            .flow-step {
-                padding: 30px;
+            .page-hero h1 {
+                font-size: 40px;
             }
             
-            .form-row {
+            .radio-group,
+            .checkbox-group {
                 grid-template-columns: 1fr;
             }
-            
-            .form-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-button, .secondary-button {
-                width: 100%;
-                max-width: 300px;
-            }
         }
-        
+
         @media (max-width: 768px) {
-            .booking-hero h1 {
-                font-size: 2.2rem;
+            .page-hero h1 {
+                font-size: 32px;
             }
             
-            .step-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .score-title h2 {
+                font-size: 28px;
             }
             
-            .step-number {
-                margin-right: 0;
+            .audit-form {
+                padding: 25px;
             }
             
-            .demo-types {
-                grid-template-columns: 1fr;
-            }
-            
-            .precall-items {
-                grid-template-columns: 1fr;
+            .modal-content {
+                padding: 30px 20px;
             }
         }
-        
+
         @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
+            .page-hero {
+                padding: 140px 0 60px;
             }
             
-            .booking-hero {
-                padding: 130px 0 40px;
+            .qualification-section,
+            .form-section {
+                padding: 40px 0;
             }
             
-            .flow-step {
-                padding: 25px 20px;
+            .form-section-title {
+                font-size: 20px;
             }
             
-            .checkbox-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .radio-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
+            .guarantee-badge {
+                padding: 15px 25px;
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header & Navigation -->
+    <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">Vibe<span>metric</span></div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="technology.html">Technology</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                </ul>
-                <button class="cta-button" id="header-cta">Get AI Audit</button>
+            <div class="nav-container">
+                <a href="/" class="logo">Vibe<span>Metric</span>.io</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/packages">Packages</a>
+                    <a href="/proof">Proof</a>
+                    <a href="/book-audit" class="active">Book Free Audit</a>
+                </div>
+                
+                <a href="/book-audit" class="nav-cta desktop-only">Book Free Audit</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="booking-hero">
-        <div class="booking-hero-bg"></div>
+    <section class="page-hero">
         <div class="container">
-            <h1>Book Your Free Growth Audit</h1>
-            <p class="booking-hero-subtitle">Get a personalized demo of our AI Engine and discover how we can deliver 3x ROI for your business</p>
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Book Free Audit</span>
+            </div>
+            
+            <h1>Strict Qualification Process to Ensure <span>We're the Right Fit</span></h1>
+            <p>Book Your Free 30-Minute Creative Audit. You'll walk away with: Custom Creative Forecast • Operational Savings Breakdown • Personalized ROI Projection</p>
         </div>
     </section>
 
-    <!-- Booking Flow -->
-    <section class="booking-flow">
+    <!-- Qualification Score -->
+    <section class="qualification-section">
         <div class="container">
-            <div class="flow-container">
-                <!-- Step 1: Pre-Qualification -->
-                <div class="flow-step">
-                    <div class="step-header">
-                        <div class="step-number">1</div>
-                        <div class="step-title">Pre-Qualification Gate</div>
+            <div class="qualification-container">
+                <div class="score-title">
+                    <h2>Qualification Score</h2>
+                    <p>Higher score = better fit for our creative system</p>
+                </div>
+                
+                <div class="score-indicator">
+                    <div class="score-labels">
+                        <span>Poor Fit</span>
+                        <span>Maybe</span>
+                        <span>Good Fit</span>
+                        <span>Excellent Fit</span>
                     </div>
-                    
-                    <p class="step-description">To ensure we can deliver maximum value, please confirm your business meets our criteria:</p>
-                    
-                    <div class="qualification-gate">
-                        <div class="gate-checkboxes">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="qualification-1">
-                                <label for="qualification-1">My business generates $4,000+ monthly revenue</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="qualification-2">
-                                <label for="qualification-2">I'm the decision-maker or key influencer for marketing investments</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="qualification-3">
-                                <label for="qualification-3">I can commit to a 30+ minute discovery call</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="qualification-4">
-                                <label for="qualification-4">I'm looking to implement AI marketing within 90 days</label>
-                            </div>
-                        </div>
-                        
-                        <button class="cta-button" id="check-qualification" style="width: 100%;">
-                            <i class="fas fa-check-circle"></i> Check Qualification
-                        </button>
-                        
-                        <div class="gate-result" id="gate-success">
-                            <h3><i class="fas fa-check-circle"></i> Great! You Qualify for a Demo</h3>
-                            <p>Based on your responses, you're a great fit for Vibemetric. Please proceed to the booking form below.</p>
-                        </div>
-                        
-                        <div class="gate-result" id="gate-failure">
-                            <h3><i class="fas fa-info-circle"></i> Not Quite Ready Yet</h3>
-                            <p>Based on your responses, you may not be ready for our AI marketing solutions yet. We recommend downloading our free AI Marketing Guide to help prepare your business.</p>
-                            <button class="secondary-button" id="download-guide" style="margin-top: 15px;">
-                                <i class="fas fa-download"></i> Download Free AI Marketing Guide
-                            </button>
-                        </div>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreFill"></div>
                     </div>
                 </div>
                 
-                <!-- Step 2: Smart Booking Form -->
-                <div class="flow-step" id="booking-form-step" style="display: none;">
-                    <div class="step-header">
-                        <div class="step-number">2</div>
-                        <div class="step-title">Smart Booking Form</div>
-                    </div>
-                    
-                    <p class="step-description">Please provide details about your business so we can personalize your demo experience.</p>
-                    
-                    <div class="smart-booking-form">
-                        <form id="demo-booking-form">
-                            <!-- Section A: Business Basics -->
-                            <div class="form-section">
-                                <h3 class="section-title">Business Basics</h3>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="full-name" class="required">Full Name</label>
-                                        <input type="text" id="full-name" name="full-name" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="email" class="required">Email Address</label>
-                                        <input type="email" id="email" name="email" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="phone" class="required">Phone Number</label>
-                                        <input type="tel" id="phone" name="phone" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="company" class="required">Company Name</label>
-                                        <input type="text" id="company" name="company" required>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="website" class="required">Website URL</label>
-                                        <input type="url" id="website" name="website" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="industry" class="required">Industry</label>
-                                        <select id="industry" name="industry" required>
-                                            <option value="">Select your industry</option>
-                                            <option value="ecommerce">E-commerce</option>
-                                            <option value="saas">SaaS/Tech</option>
-                                            <option value="fb">F&B/Hospitality</option>
-                                            <option value="education">Education</option>
-                                            <option value="property">Property/Real Estate</option>
-                                            <option value="retail">Retail</option>
-                                            <option value="other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="monthly-revenue" class="required">Monthly Revenue</label>
-                                        <select id="monthly-revenue" name="monthly-revenue" required>
-                                            <option value="">Select revenue range</option>
-                                            <option value="<4k">&lt;$4K (Not qualified)</option>
-                                            <option value="4k-10k">$4K-$10K</option>
-                                            <option value="10k-20k">$10K-$20K</option>
-                                            <option value="20k-50k">$20K-$50K</option>
-                                            <option value="50k+">$50K+</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Section B: Marketing Current State -->
-                            <div class="form-section">
-                                <h3 class="section-title">Marketing Current State</h3>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="marketing-spend" class="required">Current Monthly Marketing Spend</label>
-                                        <select id="marketing-spend" name="marketing-spend" required>
-                                            <option value="">Select spend range</option>
-                                            <option value="0">$0</option>
-                                            <option value="<1k">&lt;$1K</option>
-                                            <option value="1k-3k">$1K-$3K</option>
-                                            <option value="3k-10k">$3K-$10K</option>
-                                            <option value="10k+">$10K+</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="biggest-challenge" class="required">Biggest Marketing Challenge</label>
-                                        <select id="biggest-challenge" name="biggest-challenge" required>
-                                            <option value="">Select your biggest challenge</option>
-                                            <option value="high-cac">High Customer Acquisition Cost (CAC)</option>
-                                            <option value="low-roi">Low ROI on Marketing Spend</option>
-                                            <option value="time-consuming">Marketing is Too Time-Consuming</option>
-                                            <option value="inconsistent">Inconsistent Results</option>
-                                            <option value="scaling">Difficulty Scaling</option>
-                                            <option value="attribution">Cannot Measure Attribution</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Current Agencies/Tools</label>
-                                    <div class="checkbox-grid">
-                                        <div class="checkbox-option">
-                                            <input type="checkbox" id="tool-none" name="current-tools" value="none">
-                                            <label for="tool-none">None</label>
-                                        </div>
-                                        <div class="checkbox-option">
-                                            <input type="checkbox" id="tool-traditional" name="current-tools" value="traditional">
-                                            <label for="tool-traditional">Traditional Marketing Agency</label>
-                                        </div>
-                                        <div class="checkbox-option">
-                                            <input type="checkbox" id="tool-other-ai" name="current-tools" value="other-ai">
-                                            <label for="tool-other-ai">Other AI Marketing Tool</label>
-                                        </div>
-                                        <div class="checkbox-option">
-                                            <input type="checkbox" id="tool-inhouse" name="current-tools" value="inhouse">
-                                            <label for="tool-inhouse">In-house Marketing Team</label>
-                                        </div>
-                                        <div class="checkbox-option">
-                                            <input type="checkbox" id="tool-freelancers" name="current-tools" value="freelancers">
-                                            <label for="tool-freelancers">Freelancers</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Section C: Goals & Readiness -->
-                            <div class="form-section">
-                                <h3 class="section-title">Goals & Readiness</h3>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="primary-goal" class="required">Primary Goal</label>
-                                        <select id="primary-goal" name="primary-goal" required>
-                                            <option value="">Select primary goal</option>
-                                            <option value="increase-revenue">Increase Revenue</option>
-                                            <option value="reduce-costs">Reduce Marketing Costs</option>
-                                            <option value="save-time">Save Time on Marketing</option>
-                                            <option value="all">All of the Above</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="timeline" class="required">Timeline for Implementation</label>
-                                        <select id="timeline" name="timeline" required>
-                                            <option value="">Select timeline</option>
-                                            <option value="<30">&lt;30 days</option>
-                                            <option value="30-60">30-60 days</option>
-                                            <option value="60-90">60-90 days</option>
-                                            <option value="90+">90+ days</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="technical-capability" class="required">Technical Capability</label>
-                                    <div class="radio-group">
-                                        <div class="radio-option">
-                                            <input type="radio" id="tech-none" name="technical-capability" value="none" required>
-                                            <label for="tech-none">No technical team</label>
-                                        </div>
-                                        <div class="radio-option">
-                                            <input type="radio" id="tech-basic" name="technical-capability" value="basic">
-                                            <label for="tech-basic">Basic (can use tools)</label>
-                                        </div>
-                                        <div class="radio-option">
-                                            <input type="radio" id="tech-advanced" name="technical-capability" value="advanced">
-                                            <label for="tech-advanced">Advanced (can code)</label>
-                                        </div>
-                                        <div class="radio-option">
-                                            <input type="radio" id="tech-engineering" name="technical-capability" value="engineering">
-                                            <label for="tech-engineering">Engineering team</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Section D: Meeting Preferences -->
-                            <div class="form-section">
-                                <h3 class="section-title">Meeting Preferences</h3>
-                                
-                                <div class="form-group">
-                                    <label>Preferred Demo Type</label>
-                                    <div class="demo-types">
-                                        <div class="demo-type-card" data-demo-type="strategy">
-                                            <div class="demo-type-icon">
-                                                <i class="fas fa-chart-line"></i>
-                                            </div>
-                                            <h3>Strategy Session</h3>
-                                            <p>Focus on business goals and AI strategy. Best for decision-makers.</p>
-                                        </div>
-                                        
-                                        <div class="demo-type-card" data-demo-type="technical">
-                                            <div class="demo-type-icon">
-                                                <i class="fas fa-code"></i>
-                                            </div>
-                                            <h3>Technical Demo</h3>
-                                            <p>Deep dive into our AI Engine technology. Best for technical teams.</p>
-                                        </div>
-                                        
-                                        <div class="demo-type-card" data-demo-type="roi">
-                                            <div class="demo-type-icon">
-                                                <i class="fas fa-calculator"></i>
-                                            </div>
-                                            <h3>ROI Assessment</h3>
-                                            <p>Focus on potential ROI and cost savings. Best for finance-focused.</p>
-                                        </div>
-                                    </div>
-                                    <input type="hidden" id="demo-type" name="demo-type" required>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="meeting-length" class="required">Meeting Length</label>
-                                        <select id="meeting-length" name="meeting-length" required>
-                                            <option value="">Select meeting length</option>
-                                            <option value="30">30 minutes</option>
-                                            <option value="45">45 minutes</option>
-                                            <option value="60">60 minutes</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="pre-call-materials" class="required">Pre-call Materials</label>
-                                        <select id="pre-call-materials" name="pre-call-materials" required>
-                                            <option value="">Select preferred materials</option>
-                                            <option value="case-studies">Case Studies</option>
-                                            <option value="tech-overview">Technology Overview</option>
-                                            <option value="roi-calculator">ROI Calculator</option>
-                                            <option value="all">All of the Above</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="additional-notes">Additional Notes or Questions</label>
-                                    <textarea id="additional-notes" name="additional-notes" placeholder="Any specific questions or topics you'd like us to cover during the demo..."></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="form-actions">
-                                <button type="submit" class="cta-button" id="submit-booking">
-                                    <i class="fas fa-calendar-check"></i> Book Now
-                                </button>
-                                <button type="button" class="secondary-button" id="reset-form">
-                                    <i class="fas fa-redo"></i> Reset Form
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                
-                <!-- Step 3: Routing Results -->
-                <div class="routing-results" id="routing-results">
-                    <div class="routing-icon">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3 class="routing-title">Demo Successfully Booked!</h3>
-                    <p class="routing-description">Based on your business profile, we've customized your demo experience. Our team will contact you within 24 hours to confirm the details.</p>
-                    
-                    <div class="routing-details">
-                        <h4>Your Customized Demo Experience:</h4>
-                        <ul class="details-list" id="routing-details-list">
-                            <!-- Will be populated by JavaScript -->
-                        </ul>
-                    </div>
-                    
-                    <div class="precall-package">
-                        <div class="precall-header">
-                            <div class="precall-icon">
-                                <i class="fas fa-box-open"></i>
-                            </div>
-                            <h3>Your Pre-Call Package</h3>
-                        </div>
-                        
-                        <div class="precall-items">
-                            <div class="precall-item">
-                                <h4><i class="fas fa-file-alt"></i> Client Expectations Document</h4>
-                                <p>What we'll cover in the call and what success looks like</p>
-                            </div>
-                            <div class="precall-item">
-                                <h4><i class="fas fa-clipboard-check"></i> Minimum Requirements Checklist</h4>
-                                <p>Data access needed and team availability requirements</p>
-                            </div>
-                            <div class="precall-item">
-                                <h4><i class="fas fa-tv"></i> Sample Dashboard Access</h4>
-                                <p>Read-only demo environment pre-loaded with Malaysian data</p>
-                            </div>
-                            <div class="precall-item">
-                                <h4><i class="fas fa-question-circle"></i> Pre-Call Questionnaire</h4>
-                                <p>Must complete 24 hours before call to confirm booking</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 40px;">
-                        <button class="secondary-button" id="book-another">
-                            <i class="fas fa-plus-circle"></i> Book Another Demo
-                        </button>
-                    </div>
+                <div class="score-result" id="scoreResult">
+                    <div class="score-value poor" id="scoreValue">0</div>
+                    <div class="score-message" id="scoreMessage">⚠️ Poor Fit Likely</div>
+                    <div class="score-description" id="scoreDescription">Based on your answers, we may not be the best fit at this stage.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Form Section -->
+    <section class="form-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>VIBEMETRIC</h4>
-                    <p style="color: var(--gray-text); margin-bottom: 20px;">Human Strategy, AI Execution, Maximum Growth</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Complete Your Creative Audit Request</h3>
+                    <p>Fill out this qualification form to see if we're the right fit for your business</p>
+                    
+                    <div class="slots-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <strong>Only 5 qualified slots left this week</strong>
+                            <p style="font-size: 14px; margin-top: 5px;">We prioritize serious Malaysian SMEs ready to transform their creative output.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>QUICK LINKS</h4>
+                <!-- Warning Box -->
+                <div class="warning-box">
+                    <div class="warning-header">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <h4>IMPORTANT NOTICE</h4>
+                    </div>
+                    <div class="warning-content">
+                        <p>This form is designed for strict qualification. If you:</p>
+                        <ul>
+                            <li><i class="fas fa-times"></i> Are a competitor wanting to spy on our process</li>
+                            <li><i class="fas fa-times"></i> Don't have genuine need for a creative system</li>
+                            <li><i class="fas fa-times"></i> Are not ready to invest in brand development</li>
+                            <li><i class="fas fa-times"></i> Are not a decision-maker in your company</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-weight: 600;">Please do not submit this form. We reserve the right to decline audit requests that don't meet our qualification criteria.</p>
+                    </div>
+                </div>
+                
+                <!-- Audit Form -->
+                <form class="audit-form" id="auditForm">
+                    <!-- Section 1: Business & Qualification -->
+                    <h3 class="form-section-title">1. Business & Qualification</h3>
+                    
+                    <div class="form-group">
+                        <label for="industry">Your Industry <span>*</span></label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select industry...</option>
+                            <option value="ecommerce">E-commerce & Retail</option>
+                            <option value="fnb">F&B & Hospitality</option>
+                            <option value="services">Professional Services</option>
+                            <option value="tech">Technology & SaaS</option>
+                            <option value="education">Education & EdTech</option>
+                            <option value="health">Health & Wellness</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="revenue">Current Monthly Revenue <span>*</span></label>
+                        <select id="revenue" name="revenue" required>
+                            <option value="">Choose range...</option>
+                            <option value="0-10k">Under $10,000/month</option>
+                            <option value="10k-25k">$10,000 - $25,000/month</option>
+                            <option value="25k-50k">$25,000 - $50,000/month</option>
+                            <option value="50k-100k">$50,000 - $100,000/month</option>
+                            <option value="100k-300k">$100,000 - $300,000/month</option>
+                            <option value="300k+">Over $300,000/month</option>
+                        </select>
+                        <div class="help-text">Helps us calculate accurate ROI projections for your creative system</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Monthly Budget for Creative Growth <span>*</span></label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range...</option>
+                            <option value="0-1k">Under $1,000/month</option>
+                            <option value="1k-2k">$1,000 - $2,000/month</option>
+                            <option value="2k-5k">$2,000 - $5,000/month</option>
+                            <option value="5k-10k">$5,000 - $10,000/month</option>
+                            <option value="10k-20k">$10,000 - $20,000/month</option>
+                            <option value="20k+">Over $20,000/month</option>
+                        </select>
+                        <div class="help-text">Our packages start at $320/month. Budget under $2,000 won't be a good fit.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Are you the decision-maker? <span>*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="decision-yes" name="decision" value="yes" required>
+                                <label for="decision-yes">Yes, I have full decision authority</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="decision-partial" name="decision" value="partial">
+                                <label for="decision-partial">Yes, but need to discuss with team</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="decision-no" name="decision" value="no">
+                                <label for="decision-no">No, I'm just researching</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="decision-employee" name="decision" value="employee">
+                                <label for="decision-employee">No, I'm an employee assigned to research</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section 2: Challenges & Goals -->
+                    <h3 class="form-section-title">2. Creative Challenges & Goals</h3>
+                    
+                    <div class="form-group">
+                        <label>Biggest Creative Challenge Right Now <span>*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-quality" name="challenge" value="quality" required>
+                                <label for="challenge-quality">Lack of quality creative talent</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-consistency" name="challenge" value="consistency">
+                                <label for="challenge-consistency">Inconsistent content & brand voice</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-time" name="challenge" value="time">
+                                <label for="challenge-time">Too much time spent on content creation</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-conversion" name="challenge" value="conversion">
+                                <label for="challenge-conversion">Content not driving conversions</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-strategy" name="challenge" value="strategy">
+                                <label for="challenge-strategy">No long-term creative strategy</label>
+                            </div>
+                            <div class="radio-option" onclick="selectRadio(this)">
+                                <input type="radio" id="challenge-competition" name="challenge" value="competition">
+                                <label for="challenge-competition">Hard to stand out from competitors</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="timeline">When to Start Seeing Results? <span>*</span></label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Choose...</option>
+                            <option value="immediate">Immediately (within 1 month)</option>
+                            <option value="1-3">In 1-3 months</option>
+                            <option value="3-6">In 3-6 months</option>
+                            <option value="6+">After 6 months, focus on long-term</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Biggest Concern About Creative System (Be honest - we appreciate it!)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="concern-culture" name="concern" value="culture">
+                                <label for="concern-culture">Understanding Malaysian culture</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="concern-quality" name="concern" value="quality">
+                                <label for="concern-quality">Creative quality standards</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="concern-communication" name="concern" value="communication">
+                                <label for="concern-communication">Communication in English/Malay</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="concern-timezone" name="concern" value="timezone">
+                                <label for="concern-timezone">Malaysia timezone alignment</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="concern-none" name="concern" value="none">
+                                <label for="concern-none">No specific concerns</label>
+                            </div>
+                        </div>
+                        <div class="help-text">We address all these concerns upfront in our process</div>
+                    </div>
+                    
+                    <!-- Section 3: Current Situation -->
+                    <h3 class="form-section-title">3. Current Creative Situation</h3>
+                    
+                    <div class="form-group">
+                        <label for="output">Current Monthly Creative Output</label>
+                        <select id="output" name="output">
+                            <option value="">Select...</option>
+                            <option value="none">Almost no new content</option>
+                            <option value="1-5">1-5 pieces/month</option>
+                            <option value="5-10">5-10 pieces/month</option>
+                            <option value="10-20">10-20 pieces/month</option>
+                            <option value="20+">20+ pieces/month but inconsistent</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>What do you expect most from a creative partner?</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="expect-volume" name="expectation" value="volume">
+                                <label for="expect-volume">Increase content volume & quality</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="expect-brand" name="expectation" value="brand">
+                                <label for="expect-brand">Build stronger brand identity</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="expect-engagement" name="expectation" value="engagement">
+                                <label for="expect-engagement">Increase engagement & followers</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="expect-conversion" name="expectation" value="conversion">
+                                <label for="expect-conversion">Drive more conversions from content</label>
+                            </div>
+                            <div class="checkbox-option" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" id="expect-efficiency" name="expectation" value="efficiency">
+                                <label for="expect-efficiency">Save time & cost on content creation</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section 4: Contact Information -->
+                    <h3 class="form-section-title">4. Contact Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span>*</span></label>
+                        <input type="text" id="fullName" name="fullName" placeholder="John Smith" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Business Email <span>*</span></label>
+                        <input type="email" id="email" name="email" placeholder="john@yourcompany.com" required>
+                        <div class="help-text">We'll send calendar invite to this email</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your Company Inc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website">Company Website/Instagram</label>
+                        <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">WhatsApp Number (Malaysia)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+60 12-345 6789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Anything else we should know?</label>
+                        <textarea id="notes" name="notes" placeholder="Current tools, team size, specific goals, or anything else..."></textarea>
+                    </div>
+                    
+                    <!-- Guarantee Section -->
+                    <div class="guarantee-section">
+                        <div class="guarantee-container">
+                            <h3 class="guarantee-title">100% Zero Risk Guarantee</h3>
+                            <p class="guarantee-text">If we don't deliver clear ROI projection and creative roadmap in your audit, you pay nothing and we part as friends.</p>
+                            <div class="guarantee-badge">$0 Risk Audit</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Section -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit & Check Qualification
+                        </button>
+                        <p class="privacy-note">
+                            <i class="fas fa-lock"></i> Your information is secure. We never share your data.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h3 class="modal-title">Audit Request Submitted!</h3>
+            <p class="modal-message">Thank you for your interest in VibeMetric's creative system. We'll review your qualification and respond within 24 hours.</p>
+            
+            <div class="modal-next-steps">
+                <h4>What Happens Next:</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> You'll receive an email confirmation</li>
+                    <li><i class="fas fa-calendar-check"></i> If qualified, we'll schedule your 30-minute audit</li>
+                    <li><i class="fas fa-chart-line"></i> Prepare your current creative metrics</li>
+                    <li><i class="fas fa-users"></i> Bring your key team members to the call</li>
+                </ul>
+            </div>
+            
+            <button class="submit-btn" onclick="window.location.href='/'">
+                <i class="fas fa-home"></i> Back to Homepage
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VibeMetric.io</h3>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">AI-powered creative system for Malaysian SMEs. 24/7 coverage with GMT+8 business hours overlap.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="technology.html">Technology</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="case-studies.html">Case Studies</a></li>
-                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/proof">Proof</a></li>
+                        <li><a href="/book-audit">Book Free Audit</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>BOOKING SUPPORT</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Demo Preparation</a></li>
-                        <li><a href="#">System Requirements</a></li>
-                        <li><a href="#">Cancellation Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>CONTACT</h4>
+                <div class="footer-col">
+                    <h3>Contact</h3>
                     <div class="footer-contact">
-                        <p><i class="fas fa-envelope"></i> demo@vibemetric.com</p>
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.io</p>
                         <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
-                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM (MYT)</p>
+                        <p><i class="fab fa-whatsapp"></i> +60 12-XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Based in Malaysia</p>
                     </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Language Support</h3>
+                    <ul class="footer-links">
+                        <li>Bahasa Malaysia</li>
+                        <li>English</li>
+                        <li>Mandarin</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 Vibemetric. All rights reserved. | Minimum $4K monthly revenue required for demo booking | PDPA Compliant</p>
+                <p>© 2025 VibeMetric.io. All rights reserved. • Strict qualification ensures best fit for both parties.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '1000';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (window.innerWidth <= 992 && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Radio button selection
+        function selectRadio(element) {
+            const radioInput = element.querySelector('input[type="radio"]');
+            radioInput.checked = true;
+            
+            // Remove selected class from all options
+            const allOptions = element.parentElement.querySelectorAll('.radio-option');
+            allOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            calculateQualificationScore();
+        }
+
+        // Checkbox toggle
+        function toggleCheckbox(element) {
+            const checkboxInput = element.querySelector('input[type="checkbox"]');
+            checkboxInput.checked = !checkboxInput.checked;
+            
+            if (checkboxInput.checked) {
+                element.classList.add('selected');
+            } else {
+                element.classList.remove('selected');
+            }
+            
+            calculateQualificationScore();
+        }
+
+        // Qualification score calculation
+        function calculateQualificationScore() {
+            let score = 0;
+            let totalPossible = 100;
+            
+            // Revenue scoring
+            const revenue = document.getElementById('revenue').value;
+            if (revenue === '50k-100k') score += 15;
+            else if (revenue === '100k-300k') score += 20;
+            else if (revenue === '300k+') score += 25;
+            else if (revenue === '25k-50k') score += 10;
+            else if (revenue === '10k-25k') score += 5;
+            
+            // Budget scoring
+            const budget = document.getElementById('budget').value;
+            if (budget === '5k-10k') score += 15;
+            else if (budget === '10k-20k') score += 20;
+            else if (budget === '20k+') score += 25;
+            else if (budget === '2k-5k') score += 10;
+            else if (budget === '1k-2k') score += 5;
+            
+            // Decision-maker scoring
+            const decision = document.querySelector('input[name="decision"]:checked');
+            if (decision) {
+                if (decision.value === 'yes') score += 20;
+                else if (decision.value === 'partial') score += 10;
+                else score -= 10; // Penalty for non-decision-makers
+            }
+            
+            // Timeline scoring
+            const timeline = document.getElementById('timeline').value;
+            if (timeline === 'immediate') score += 10;
+            else if (timeline === '1-3') score += 15;
+            else if (timeline === '3-6') score += 5;
+            
+            // Output scoring
+            const output = document.getElementById('output').value;
+            if (output === '10-20' || output === '20+') score += 10;
+            
+            // Calculate percentage
+            const percentage = Math.min(Math.max(Math.round((score / totalPossible) * 100), 0), 100);
+            
+            // Update score bar
+            const scoreFill = document.getElementById('scoreFill');
+            scoreFill.style.width = percentage + '%';
+            
+            // Update score result
+            const scoreResult = document.getElementById('scoreResult');
+            const scoreValue = document.getElementById('scoreValue');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const scoreDescription = document.getElementById('scoreDescription');
+            
+            scoreValue.textContent = percentage + '%';
+            scoreResult.classList.add('show');
+            
+            // Update based on score range
+            if (percentage < 30) {
+                scoreValue.className = 'score-value poor';
+                scoreMessage.textContent = '⚠️ Poor Fit Likely';
+                scoreDescription.textContent = 'Based on your answers, we may not be the best fit at this stage.';
+            } else if (percentage < 50) {
+                scoreValue.className = 'score-value maybe';
+                scoreMessage.textContent = '🤔 Maybe a Fit';
+                scoreDescription.textContent = 'We might be a good fit, but there could be better alternatives for your current needs.';
+            } else if (percentage < 75) {
+                scoreValue.className = 'score-value good';
+                scoreMessage.textContent = '👍 Good Fit';
+                scoreDescription.textContent = 'Our creative system could be a great match for your business needs.';
+            } else {
+                scoreValue.className = 'score-value excellent';
+                scoreMessage.textContent = '🎯 Excellent Fit';
+                scoreDescription.textContent = 'Perfect match! Our creative system is designed exactly for businesses like yours.';
+            }
+            
+            // Update submit button
+            const submitBtn = document.getElementById('submitBtn');
+            if (percentage < 30) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Not Qualified - Minimum 30% Required';
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit & Check Qualification';
+            }
+            
+            return percentage;
+        }
+
+        // Form validation and submission
+        document.getElementById('auditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calculate final score
+            const finalScore = calculateQualificationScore();
+            
+            // Check minimum qualification
+            if (finalScore < 30) {
+                alert('Sorry, you need a minimum qualification score of 30% to submit. Please adjust your answers or contact us directly for alternatives.');
+                return;
+            }
+            
+            // Here you would normally send the form data to a server
+            // For this demo, we'll just show the success modal
+            
+            // Show success modal
+            document.getElementById('successModal').classList.add('show');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Close modal
+        document.getElementById('modalClose').addEventListener('click', function() {
+            document.getElementById('successModal').classList.remove('show');
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('show');
+            }
+        });
+
+        // Update year in footer
         document.addEventListener('DOMContentLoaded', function() {
-            // Header CTA button
-            document.getElementById('header-cta').addEventListener('click', function() {
-                alert('Redirecting to AI Audit booking form...');
-            });
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', new Date().getFullYear());
+            }
             
-            // Qualification check
-            const checkQualificationBtn = document.getElementById('check-qualification');
-            const gateSuccess = document.getElementById('gate-success');
-            const gateFailure = document.getElementById('gate-failure');
-            const bookingFormStep = document.getElementById('booking-form-step');
-            const downloadGuideBtn = document.getElementById('download-guide');
-            
-            checkQualificationBtn.addEventListener('click', function() {
-                const checkboxes = document.querySelectorAll('.qualification-gate input[type="checkbox"]');
-                let allChecked = true;
-                
-                checkboxes.forEach(checkbox => {
-                    if (!checkbox.checked) {
-                        allChecked = false;
-                    }
-                });
-                
-                if (allChecked) {
-                    gateSuccess.style.display = 'block';
-                    gateFailure.style.display = 'none';
-                    bookingFormStep.style.display = 'block';
-                    
-                    // Smooth scroll to booking form
-                    setTimeout(() => {
-                        bookingFormStep.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }, 500);
-                } else {
-                    gateSuccess.style.display = 'none';
-                    gateFailure.style.display = 'block';
-                    bookingFormStep.style.display = 'none';
+            // Add active class to current page in mobile menu
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
                 }
             });
             
-            downloadGuideBtn.addEventListener('click', function() {
-                alert('Downloading Free AI Marketing Guide...');
-                // In real implementation, this would trigger a download
-            });
-            
-            // Demo type selection
-            const demoTypeCards = document.querySelectorAll('.demo-type-card');
-            const demoTypeInput = document.getElementById('demo-type');
-            
-            demoTypeCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Remove selected class from all cards
-                    demoTypeCards.forEach(c => c.classList.remove('selected'));
-                    
-                    // Add selected class to clicked card
-                    this.classList.add('selected');
-                    
-                    // Update hidden input value
-                    demoTypeInput.value = this.getAttribute('data-demo-type');
-                });
-            });
-            
-            // Form submission
-            const bookingForm = document.getElementById('demo-booking-form');
-            const routingResults = document.getElementById('routing-results');
-            const routingDetailsList = document.getElementById('routing-details-list');
-            const submitBookingBtn = document.getElementById('submit-booking');
-            
-            bookingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form values
-                const formData = new FormData(bookingForm);
-                const formValues = Object.fromEntries(formData.entries());
-                
-                // Determine routing based on form values
-                let routingPath = '';
-                let routingTitle = '';
-                let routingDescription = '';
-                let routingDetails = [];
-                
-                // Smart routing logic
-                if (formValues['monthly-revenue'] === '50k+' && formValues['marketing-spend'] === '10k+') {
-                    routingPath = 'enterprise';
-                    routingTitle = 'Enterprise Sales Path';
-                    routingDescription = 'You\'ve been scheduled for a 60-minute deep dive with our CTO. We\'ll send you enterprise case studies and prepare a customized platform demo.';
-                    routingDetails = [
-                        'Meeting with: CTO & Enterprise Sales Director',
-                        'Duration: 60 minutes',
-                        'Focus: Enterprise AI implementation strategy',
-                        'Materials: Enterprise case studies & migration plan',
-                        'Follow-up: Custom proposal within 48 hours'
-                    ];
-                } else if (formValues['monthly-revenue'] === '10k-20k' || formValues['monthly-revenue'] === '20k-50k') {
-                    routingPath = 'growth';
-                    routingTitle = 'Growth Partner Path';
-                    routingDescription = 'You\'ve been scheduled for a 45-minute consultation with our Head of Growth. We\'ll focus on scaling strategies and ROI optimization.';
-                    routingDetails = [
-                        'Meeting with: Head of Growth',
-                        'Duration: 45 minutes',
-                        'Focus: Scaling strategies & automation',
-                        'Materials: Growth Partner case studies',
-                        'Follow-up: Implementation plan within 24 hours'
-                    ];
-                } else if (formValues['monthly-revenue'] === '4k-10k') {
-                    routingPath = 'campaign';
-                    routingTitle = 'Campaign Services Path';
-                    routingDescription = 'You\'ve been scheduled for a 30-minute audit with our Senior Strategist. We\'ll focus on your specific challenge and a quick-win strategy.';
-                    routingDetails = [
-                        'Meeting with: Senior Marketing Strategist',
-                        'Duration: 30 minutes',
-                        'Focus: Specific challenge & quick-win strategy',
-                        'Materials: Relevant case study & audit template',
-                        'Follow-up: Campaign proposal within 24 hours'
-                    ];
-                } else if (formValues['current-tools'] && formValues['current-tools'].includes('other-ai')) {
-                    routingPath = 'migration';
-                    routingTitle = 'Migration Specialist Path';
-                    routingDescription = 'You\'ve been scheduled for a migration assessment with our Solutions Architect. We\'ll focus on seamless transition from your current AI tool.';
-                    routingDetails = [
-                        'Meeting with: Solutions Architect',
-                        'Duration: 45 minutes',
-                        'Focus: Migration strategy & data transfer',
-                        'Materials: Migration success story',
-                        'Follow-up: Migration timeline within 24 hours'
-                    ];
-                } else {
-                    routingPath = 'default';
-                    routingTitle = 'Platform Overview';
-                    routingDescription = 'You\'ve been scheduled for a platform overview demo. We\'ll show you how our AI Engine can transform your marketing operations.';
-                    routingDetails = [
-                        'Meeting with: Platform Specialist',
-                        'Duration: 30 minutes',
-                        'Focus: Platform capabilities & benefits',
-                        'Materials: General overview & pricing',
-                        'Follow-up: Next steps discussion'
-                    ];
-                }
-                
-                // Populate routing details
-                routingDetailsList.innerHTML = '';
-                routingDetails.forEach(detail => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `<i class="fas fa-check"></i> ${detail}`;
-                    routingDetailsList.appendChild(li);
-                });
-                
-                // Show routing results
-                routingResults.classList.add('active');
-                
-                // Smooth scroll to results
-                setTimeout(() => {
-                    routingResults.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 500);
-                
-                // In a real implementation, this would submit the form data to a server
-                console.log('Form submitted with values:', formValues);
-            });
-            
-            // Reset form button
-            document.getElementById('reset-form').addEventListener('click', function() {
-                if (confirm('Are you sure you want to reset the form? All entered data will be lost.')) {
-                    bookingForm.reset();
-                    demoTypeCards.forEach(card => card.classList.remove('selected'));
-                    demoTypeInput.value = '';
-                    
-                    // Scroll to top of form
-                    bookingFormStep.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            // Initialize event listeners for form changes
+            const formElements = document.querySelectorAll('select, input, textarea');
+            formElements.forEach(element => {
+                if (element.type !== 'radio' && element.type !== 'checkbox') {
+                    element.addEventListener('change', calculateQualificationScore);
                 }
             });
             
-            // Book another button
-            document.getElementById('book-another').addEventListener('click', function() {
-                routingResults.classList.remove('active');
-                bookingForm.reset();
-                demoTypeCards.forEach(card => card.classList.remove('selected'));
-                demoTypeInput.value = '';
-                
-                // Scroll to qualification step
-                document.querySelector('.qualification-gate').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-            
-            // Form validation for required fields
-            const requiredFields = bookingForm.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                field.addEventListener('blur', function() {
-                    if (!this.value && this.type !== 'checkbox' && this.type !== 'radio') {
-                        this.style.borderColor = '#EF4444';
-                        this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.2)';
-                    } else {
-                        this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                        this.style.boxShadow = 'none';
-                    }
-                });
-            });
-            
-            // Auto-select demo type based on form values
-            const technicalCapabilityRadios = document.querySelectorAll('input[name="technical-capability"]');
-            const monthlyRevenueSelect = document.getElementById('monthly-revenue');
-            
-            technicalCapabilityRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.value === 'engineering' || this.value === 'advanced') {
-                        // Auto-select technical demo
-                        const technicalCard = document.querySelector('[data-demo-type="technical"]');
-                        demoTypeCards.forEach(card => card.classList.remove('selected'));
-                        technicalCard.classList.add('selected');
-                        demoTypeInput.value = 'technical';
-                    }
-                });
-            });
-            
-            monthlyRevenueSelect.addEventListener('change', function() {
-                if (this.value === '50k+' || this.value === '20k-50k') {
-                    // Auto-select strategy demo for larger businesses
-                    const strategyCard = document.querySelector('[data-demo-type="strategy"]');
-                    demoTypeCards.forEach(card => card.classList.remove('selected'));
-                    strategyCard.classList.add('selected');
-                    demoTypeInput.value = 'strategy';
-                }
-            });
+            // Initial score calculation
+            calculateQualificationScore();
         });
     </script>
 </body>

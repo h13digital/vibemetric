@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof | VibeMetric.io - Creative System Results & Case Studies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .page-hero h1 span {
+            color: var(--primary);
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Proof Methods */
+        .proof-methods {
+            background-color: var(--light-gray);
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .method-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .method-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .method-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .method-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .method-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .method-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Benchmarks */
+        .benchmarks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benchmark-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benchmark-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .benchmark-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benchmark-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .benchmark-label {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .benchmark-description {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .benchmark-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+
+        .before, .after {
+            text-align: center;
+        }
+
+        .before-value, .after-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .before-value {
+            color: #EF4444;
+        }
+
+        .after-value {
+            color: var(--secondary);
+        }
+
+        .before-label, .after-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .benchmark-arrow {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        /* Demo Section */
+        .demo-section {
+            background-color: var(--light-gray);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .demo-thumbnail {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .demo-content {
+            padding: 25px;
+        }
+
+        .demo-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .demo-content p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .demo-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .demo-tag {
+            background-color: var(--light-gray);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-header {
+            padding: 30px 30px 20px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+        }
+
+        .portfolio-header h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .portfolio-industry {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .portfolio-content {
+            padding: 30px;
+        }
+
+        .challenge-box, .solution-box {
+            margin-bottom: 25px;
+        }
+
+        .challenge-box h4, .solution-box h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .challenge-box p, .solution-box p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .portfolio-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* Founders Section */
+        .founders-section {
+            background-color: var(--light-gray);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .founder-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .founder-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .founder-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .founder-bio {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .founder-skills {
+            text-align: left;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .skill-item i {
+            color: var(--secondary);
+        }
+
+        /* Pilot Program */
+        .pilot-program {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pilot-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pilot-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pilot-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .pilot-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .pilot-feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 40px;
+            }
+            
+            .methods-grid,
+            .benchmarks-grid,
+            .demo-grid,
+            .portfolio-grid,
+            .founders-grid,
+            .pilot-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .pilot-title {
+                font-size: 28px;
+            }
+            
+            .portfolio-results {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero {
+                padding: 140px 0 60px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .method-card,
+            .benchmark-card,
+            .founder-card {
+                padding: 25px;
+            }
+            
+            .benchmark-value,
+            .result-value {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">Vibe<span>Metric</span>.io</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/packages">Packages</a>
+                    <a href="/proof" class="active">Proof</a>
+                    <a href="/book-audit" class="nav-cta">Book Free Audit</a>
+                </div>
+                
+                <a href="/book-audit" class="nav-cta desktop-only">Book Free Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Proof</span>
+            </div>
+            
+            <h1>Since We're Newly Launched in Malaysia, <span>Here's How We Prove Our Capabilities</span></h1>
+            <p>See the Creative System in Action Before You Commit. No vague claims. No fake testimonials. Just transparent proof through live demos, portfolio, and team track record.</p>
+            
+            <div style="margin-top: 40px;">
+                <a href="#demos" class="btn-white" style="margin-right: 15px; background-color: var(--primary); color: white;">
+                    <i class="fas fa-play-circle"></i> Watch Live Demos
+                </a>
+                <a href="/book-audit" class="btn-white" style="background-color: transparent; border: 2px solid white;">
+                    <i class="fas fa-chart-line"></i> Get Custom Forecast
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proof Methods -->
+    <section class="proof-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Three Ways We Prove Our Creative Capabilities</h2>
+                <p>Transparent proof for Malaysian businesses evaluating a creative partner</p>
+            </div>
+            
+            <div class="methods-grid">
+                <!-- Method 1 -->
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Live System Demos</h3>
+                    <p>Watch recorded walkthroughs of our actual n8n creative automation workflows, AI content generators, and dashboard setups.</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-top: 15px;">See exactly how the system works before you buy.</p>
+                    <a href="#demos" class="method-btn">
+                        <i class="fas fa-video"></i> Watch 3-Minute Demo
+                    </a>
+                </div>
+                
+                <!-- Method 2 -->
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Malaysian Portfolio</h3>
+                    <p>See our work for Malaysian companies (under NDA) using the exact same 5-tier creative system we'll deploy for you.</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-top: 15px;">Same creative systems, local market context.</p>
+                    <a href="#portfolio" class="method-btn">
+                        <i class="fas fa-eye"></i> View Malaysian Results
+                    </a>
+                </div>
+                
+                <!-- Method 3 -->
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Founders' Creative Track Record</h3>
+                    <p>Our team's previous projects, Malaysian market experience, and technical expertise building scalable creative systems.</p>
+                    <p style="font-weight: 600; color: var(--primary); margin-top: 15px;">Know who you're working with.</p>
+                    <a href="#founders" class="method-btn">
+                        <i class="fas fa-handshake"></i> Meet Our Creative Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmarks -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Creative System Performance Benchmarks</h2>
+                <p>Results from applying our 5-tier creative system to similar business challenges</p>
+                <p style="font-size: 14px; color: var(--gray); margin-top: 10px;"><i class="fas fa-shield-alt"></i> Data anonymized under NDA</p>
+            </div>
+            
+            <div class="benchmarks-grid">
+                <!-- Benchmark 1 -->
+                <div class="benchmark-card">
+                    <div class="benchmark-value">+420%</div>
+                    <div class="benchmark-label">Content Output</div>
+                    <div class="benchmark-description">Malaysian Fashion Brand — struggling with 5 content pieces/month using 1 in-house staff.</div>
+                    
+                    <div class="benchmark-comparison">
+                        <div class="before">
+                            <div class="before-value">5</div>
+                            <div class="before-label">Pieces/Month Before</div>
+                        </div>
+                        <div class="benchmark-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="after">
+                            <div class="after-value">25+</div>
+                            <div class="after-label">Pieces/Month After</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benchmark 2 -->
+                <div class="benchmark-card">
+                    <div class="benchmark-value">+325%</div>
+                    <div class="benchmark-label">Engagement Growth</div>
+                    <div class="benchmark-description">F&B Business — 1.2% engagement rate on Instagram with inconsistent content.</div>
+                    
+                    <div class="benchmark-comparison">
+                        <div class="before">
+                            <div class="before-value">1.2%</div>
+                            <div class="before-label">Engagement Before</div>
+                        </div>
+                        <div class="benchmark-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="after">
+                            <div class="after-value">5.1%</div>
+                            <div class="after-label">Engagement After</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benchmark 3 -->
+                <div class="benchmark-card">
+                    <div class="benchmark-value">-65%</div>
+                    <div class="benchmark-label">Creative Costs</div>
+                    <div class="benchmark-description">Marketing Agency — hiring freelancers per project with high variable costs.</div>
+                    
+                    <div class="benchmark-comparison">
+                        <div class="before">
+                            <div class="before-value">$3,200</div>
+                            <div class="before-label">Monthly Cost Before</div>
+                        </div>
+                        <div class="benchmark-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="after">
+                            <div class="after-value">$1,120</div>
+                            <div class="after-label">Monthly Cost After</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Benchmark 4 -->
+                <div class="benchmark-card">
+                    <div class="benchmark-value">+180%</div>
+                    <div class="benchmark-label">Conversion Rate</div>
+                    <div class="benchmark-description">Tech Startup — high website traffic but low conversion from content (0.8%).</div>
+                    
+                    <div class="benchmark-comparison">
+                        <div class="before">
+                            <div class="before-value">0.8%</div>
+                            <div class="before-label">Conversion Before</div>
+                        </div>
+                        <div class="benchmark-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="after">
+                            <div class="after-value">2.25%</div>
+                            <div class="after-label">Conversion After</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demos -->
+    <section class="demo-section" id="demos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Live Creative System Demos</h2>
+                <p>Watch our actual n8n workflows and AI creative agents in action</p>
+            </div>
+            
+            <div class="demo-grid">
+                <!-- Demo 1 -->
+                <div class="demo-card">
+                    <div class="demo-thumbnail">
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">n8n Automation</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Creative Workflow Walkthrough</div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h3>AI Content Generation Pipeline</h3>
+                        <p>See how we automate content ideation, creation, and distribution using n8n workflows and AI tools.</p>
+                        <div class="demo-tags">
+                            <span class="demo-tag">n8n</span>
+                            <span class="demo-tag">AI Generation</span>
+                            <span class="demo-tag">Content Pipeline</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Demo 2 -->
+                <div class="demo-card">
+                    <div class="demo-thumbnail">
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">Real-time Demo</div>
+                            <div style="font-size: 12px; opacity: 0.9;">3-minute walkthrough</div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Creative Performance Dashboard</h3>
+                        <p>Real-time tracking of content performance across multiple channels with predictive analytics.</p>
+                        <div class="demo-tags">
+                            <span class="demo-tag">Dashboard</span>
+                            <span class="demo-tag">Analytics</span>
+                            <span class="demo-tag">Real-time</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Demo 3 -->
+                <div class="demo-card">
+                    <div class="demo-thumbnail">
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div style="position: relative; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">Automation Demo</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Data Sync & Reporting</div>
+                        </div>
+                    </div>
+                    <div class="demo-content">
+                        <h3>Cross-Platform Content Distribution</h3>
+                        <p>Automated scheduling and publishing across social media, email, and blog platforms.</p>
+                        <div class="demo-tags">
+                            <span class="demo-tag">Automation</span>
+                            <span class="demo-tag">Multi-channel</span>
+                            <span class="demo-tag">Scheduling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="/book-audit" class="btn-white" style="background-color: var(--primary); color: white;">
+                    <i class="fas fa-calendar-check"></i> Book a Live Demo Session
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Malaysian Creative Portfolio</h2>
+                <p>The same 5-tier creative system, applied to Malaysian businesses</p>
+                <p style="font-size: 14px; color: var(--gray); margin-top: 10px;"><i class="fas fa-user-secret"></i> Client names anonymized per NDA</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Case 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <h3>Natural Beauty Cosmetics Brand</h3>
+                        <span class="portfolio-industry">E-commerce & Retail</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="challenge-box">
+                            <h4>Challenge:</h4>
+                            <p>Weak brand identity, inconsistent visual content, low social media engagement despite premium products.</p>
+                        </div>
+                        <div class="solution-box">
+                            <h4>Solution:</h4>
+                            <p>Implemented brand storytelling system + AI-powered visual content creation + multi-channel distribution automation.</p>
+                        </div>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <div class="result-value">+85%</div>
+                                <div class="result-label">Brand Awareness</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">3.5x</div>
+                                <div class="result-label">Social Growth</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <h3>Local Restaurant Chain</h3>
+                        <span class="portfolio-industry">F&B & Hospitality</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="challenge-box">
+                            <h4>Challenge:</h4>
+                            <p>Outdated content, low customer engagement, ineffective promotions, inconsistent brand messaging across locations.</p>
+                        </div>
+                        <div class="solution-box">
+                            <h4>Solution:</h4>
+                            <p>Created video content strategy + user-generated content campaigns + localized social media automation.</p>
+                        </div>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <div class="result-value">+240%</div>
+                                <div class="result-label">Video Views</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">40</div>
+                                <div class="result-label">Content/Month</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-header">
+                        <h3>Tech Education Platform</h3>
+                        <span class="portfolio-industry">EdTech & SaaS</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <div class="challenge-box">
+                            <h4>Challenge:</h4>
+                            <p>Complex product explanation, low content conversion rate, manual content production, poor student engagement.</p>
+                        </div>
+                        <div class="solution-box">
+                            <h4>Solution:</h4>
+                            <p>Developed explainer video series + interactive content + automated educational email sequences.</p>
+                        </div>
+                        <div class="portfolio-results">
+                            <div class="result-item">
+                                <div class="result-value">+67%</div>
+                                <div class="result-label">Student Engagement</div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value">-58%</div>
+                                <div class="result-label">Production Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background-color: var(--light-gray); border-radius: var(--radius);">
+                <h3 style="font-size: 20px; margin-bottom: 15px;">Why This Matters for Malaysian Clients:</h3>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">The creative systems are identical. We're applying the same technical expertise and automation frameworks, just with your Malaysian market data and cultural context.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founders -->
+    <section class="founders-section" id="founders">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Creative Leadership Team</h2>
+                <p>The experienced team behind VibeMetric's creative system</p>
+            </div>
+            
+            <div class="founders-grid">
+                <!-- Founder 1 -->
+                <div class="founder-card">
+                    <div class="founder-avatar">AL</div>
+                    <div class="founder-name">Aisha Lim</div>
+                    <div class="founder-role">CEO & Creative Director</div>
+                    <div class="founder-bio">
+                        8+ years in creative direction and brand strategy across Malaysia and Singapore. Former Creative Director at a leading Kuala Lumpur agency.
+                    </div>
+                    
+                    <div class="founder-skills">
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Built brand identity for 50+ Malaysian companies</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Expert in Malaysian cultural storytelling</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Fluent in Bahasa Malaysia, English, Mandarin</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Led creative teams for regional campaigns</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Founder 2 -->
+                <div class="founder-card">
+                    <div class="founder-avatar">RS</div>
+                    <div class="founder-name">Rahman Salleh</div>
+                    <div class="founder-role">Head of Technology & Growth</div>
+                    <div class="founder-bio">
+                        10+ years building creative technology systems and growth strategies for Southeast Asian startups. Specializes in AI-powered creative automation.
+                    </div>
+                    
+                    <div class="founder-skills">
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Developed 30+ automation systems for SMEs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>AI & Machine Learning implementation expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Grew startup revenue by 300% for 3 companies</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>7 years Malaysian market experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background-color: white; border-radius: var(--radius); box-shadow: var(--shadow);">
+                <h3 style="font-size: 20px; margin-bottom: 15px; color: var(--dark);">Our Commitment to Malaysian Clients</h3>
+                <p style="color: var(--gray); max-width: 800px; margin: 0 auto;">We're not outsourcing middlemen. We're the founders who will personally oversee your creative system and ensure it delivers measurable results for your Malaysian business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilot Program -->
+    <section class="pilot-program">
+        <div class="container">
+            <div class="pilot-container">
+                <h2 class="pilot-title">Zero-Risk Creative Pilot Program</h2>
+                <p class="pilot-subtitle">For Our First 10 Malaysian Clients</p>
+                <p style="font-size: 18px; margin-bottom: 40px; opacity: 0.9;">We're so confident in our creative system that we're offering unprecedented risk reversal for qualified Malaysian SMEs.</p>
+                
+                <div class="pilot-features">
+                    <div class="pilot-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="feature-title">30-Day Money-Back</div>
+                        <div class="feature-desc">Full refund if not satisfied in first 30 days</div>
+                    </div>
+                    
+                    <div class="pilot-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="feature-title">50% First Month</div>
+                        <div class="feature-desc">Half-price trial to test the creative system</div>
+                    </div>
+                    
+                    <div class="pilot-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="feature-title">Keep the Workflows</div>
+                        <div class="feature-desc">Cancel anytime, keep your n8n automations</div>
+                    </div>
+                    
+                    <div class="pilot-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="feature-title">CEO Check-ins</div>
+                        <div class="feature-desc">Weekly calls with founders for first 90 days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Apply This Creative System to Your Business?</h2>
+                <p>In your free 30-minute audit, we'll analyze your current creative metrics and show exactly how our system would impact your specific numbers.</p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="/book-audit" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i> Book My Free Audit & Custom Forecast
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                    <i class="fas fa-shield-alt"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day creative roadmap
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VibeMetric.io</h3>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">AI-powered creative system for Malaysian SMEs. 24/7 coverage with GMT+8 business hours overlap.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/proof">Proof</a></li>
+                        <li><a href="/book-audit">Book Free Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Proof & Demos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#demos">Live Demos</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#founders">Founders</a></li>
+                        <li><a href="#benchmarks">Benchmarks</a></li>
+                        <li><a href="/book-audit">Free Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.io</p>
+                        <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
+                        <p><i class="fab fa-whatsapp"></i> +60 12-XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Based in Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 VibeMetric.io. All rights reserved. • Zero-Risk Pilot Program for first 10 Malaysian clients.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '1000';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (window.innerWidth <= 992 && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Play button functionality for demo videos
+        document.querySelectorAll('.play-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('In a real implementation, this would open a video modal or redirect to a demo video page.');
+                // This could be replaced with actual video modal code
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('navLinks').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Update year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', new Date().getFullYear());
+            }
+            
+            // Add active class to current page in mobile menu
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

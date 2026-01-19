@@ -3,1341 +3,1094 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibemetric - Human Strategy, AI Execution, Maximum Growth</title>
+    <title>VibeMetric.io | AI-Powered Creative System for Malaysian SMEs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #2563EB;
-            --secondary-green: #10B981;
-            --accent-purple: #8B5CF6;
-            --dark-bg: #1F2937;
-            --dark-card: #374151;
-            --light-text: #F9FAFB;
-            --gray-text: #D1D5DB;
-            --border-radius: 12px;
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Header Styles */
-        .header {
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(31, 41, 55, 0.95);
-            backdrop-filter: blur(10px);
+            width: 100%;
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .header-content {
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
         }
-        
+
         .logo span {
-            color: var(--secondary-green);
+            color: var(--secondary);
         }
-        
+
         .nav-links {
             display: flex;
-            list-style: none;
+            gap: 30px;
         }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
+
         .nav-links a {
-            color: var(--gray-text);
             text-decoration: none;
+            color: var(--dark);
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.95rem;
         }
-        
+
         .nav-links a:hover {
-            color: var(--light-text);
+            color: var(--primary);
         }
-        
-        .cta-button {
-            background-color: var(--primary-blue);
+
+        .nav-cta {
+            background-color: var(--primary);
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
             font-weight: 600;
-            cursor: pointer;
             transition: var(--transition);
-            font-size: 0.95rem;
         }
-        
-        .cta-button:hover {
-            background-color: #1D4ED8;
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-2px);
         }
-        
-        .secondary-button {
-            background-color: transparent;
-            color: var(--light-text);
-            border: 2px solid var(--primary-blue);
-            padding: 10px 22px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
             cursor: pointer;
-            transition: var(--transition);
         }
-        
-        .secondary-button:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-        }
-        
+
         /* Hero Section */
         .hero {
-            padding: 150px 0 80px;
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
             position: relative;
             overflow: hidden;
         }
-        
-        .hero-bg {
+
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-            z-index: -1;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0) 70%);
+            border-radius: 50%;
         }
-        
+
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            line-height: 1.1;
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--light-text), var(--primary-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--dark);
         }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: var(--gray-text);
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+
+        .hero-text h1 span {
+            color: var(--primary);
         }
-        
-        .hero-buttons {
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .hero-cta {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px;
+            gap: 16px;
+            margin-top: 30px;
         }
-        
-        .trust-indicator {
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            background-color: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
         }
-        
-        .trust-indicator i {
-            color: var(--secondary-green);
-            margin-right: 10px;
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
         }
-        
-        /* Social Proof Section */
-        .social-proof {
-            padding: 80px 0;
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
         }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            color: var(--light-text);
+
+        .btn-secondary:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
         }
-        
-        .client-logos {
+
+        .hero-stats {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 30px;
+            margin-top: 40px;
         }
-        
-        .client-logo {
+
+        .stat-item {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 180px;
         }
-        
-        .logo-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: var(--dark-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+
+        .stat-value {
+            font-size: 32px;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--primary);
         }
-        
-        .logo-name {
-            font-weight: 600;
-            margin-bottom: 5px;
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray);
         }
-        
-        .logo-result {
-            font-size: 0.85rem;
-            color: var(--secondary-green);
-            font-weight: 600;
+
+        /* Value Proposition */
+        .value-prop {
+            padding: 100px 0;
+            background-color: white;
         }
-        
-        .performance-ticker {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            background-color: var(--dark-card);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        .metric {
+
+        .section-title {
             text-align: center;
+            margin-bottom: 60px;
         }
-        
-        .metric-value {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--secondary-green);
-            line-height: 1;
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
         }
-        
-        .metric-label {
-            font-size: 0.9rem;
-            color: var(--gray-text);
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
         }
-        
-        /* AI Difference Section */
-        .ai-difference {
-            padding: 80px 0;
+
+        .value-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
-        
-        .comparison-container {
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            padding: 40px;
+
+        .value-card {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            background-color: var(--light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .value-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Creative System */
+        .creative-system {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .tiers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
-        
-        .comparison-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-        
-        .comparison-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            padding-bottom: 10px;
-            border-bottom: 3px solid;
-        }
-        
-        .traditional-title {
-            color: #EF4444;
-            border-color: #EF4444;
-        }
-        
-        .ai-title {
-            color: var(--secondary-green);
-            border-color: var(--secondary-green);
-        }
-        
-        .comparison-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .comparison-item:last-child {
-            border-bottom: none;
-        }
-        
-        .comparison-item .traditional, 
-        .comparison-item .ai {
-            width: 45%;
-        }
-        
-        .comparison-label {
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--gray-text);
-        }
-        
-        .comparison-value {
-            font-weight: 700;
-        }
-        
-        .traditional-value {
-            color: #EF4444;
-        }
-        
-        .ai-value {
-            color: var(--secondary-green);
-        }
-        
-        .cta-center {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-        }
-        
-        .services-subtitle {
-            text-align: center;
-            color: var(--gray-text);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .services-tiers {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .tier-card {
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            width: 350px;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .tier-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .tier-badge {
-            display: inline-block;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .badge-enterprise {
-            background-color: rgba(139, 92, 246, 0.2);
-            color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
-        }
-        
-        .badge-growth {
-            background-color: rgba(16, 185, 129, 0.2);
-            color: var(--secondary-green);
-            border: 1px solid var(--secondary-green);
-        }
-        
-        .badge-starter {
-            background-color: rgba(59, 130, 246, 0.2);
-            color: var(--primary-blue);
-            border: 1px solid var(--primary-blue);
-        }
-        
-        .tier-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--light-text);
-        }
-        
-        .tier-for {
-            color: var(--gray-text);
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        
-        .tier-price {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            color: var(--light-text);
-        }
-        
-        .tier-term {
-            color: var(--gray-text);
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-        }
-        
-        .tier-button {
-            margin-top: auto;
-        }
-        
-        .qualifier-note {
-            text-align: center;
-            color: var(--gray-text);
-            font-size: 0.9rem;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 15px 30px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius);
-        }
-        
-        /* ROI Calculator */
-        .roi-calculator {
-            padding: 80px 0;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-radius: var(--border-radius);
-            margin: 40px 0;
-        }
-        
-        .calculator-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            padding: 40px;
-        }
-        
-        .calculator-title {
-            text-align: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-        
-        .calculator-inputs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        
-        .slider-container {
-            position: relative;
-            margin-top: 10px;
-        }
-        
-        .slider-value {
-            position: absolute;
-            right: 0;
-            top: -25px;
-            font-weight: 700;
-            color: var(--secondary-green);
-        }
-        
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            outline: none;
-            -webkit-appearance: none;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--primary-blue);
-            cursor: pointer;
-        }
-        
-        select {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--light-text);
-            font-size: 1rem;
-        }
-        
-        .calculate-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: var(--primary-blue);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-bottom: 30px;
-        }
-        
-        .calculate-button:hover {
-            background-color: #1D4ED8;
-        }
-        
-        .results-container {
-            background-color: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            border-radius: var(--border-radius);
+
+        .tier {
+            background: white;
+            border-radius: var(--radius);
             padding: 30px;
-            display: none;
-        }
-        
-        .results-container.active {
-            display: block;
-        }
-        
-        .results-title {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            color: var(--secondary-green);
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        
-        .result-item h4 {
-            font-size: 1.8rem;
-            color: var(--light-text);
-            margin-bottom: 5px;
-        }
-        
-        .result-item p {
-            color: var(--gray-text);
-            font-size: 0.9rem;
-        }
-        
-        .smart-cta {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Technology Preview */
-        .technology-preview {
-            padding: 80px 0;
-        }
-        
-        .tech-subtitle {
-            text-align: center;
-            color: var(--gray-text);
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-        }
-        
-        .layers-container {
+            box-shadow: var(--shadow);
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-        
-        .layer {
-            display: flex;
-            background-color: var(--dark-card);
-            border-radius: var(--border-radius);
-            overflow: hidden;
+            align-items: center;
+            gap: 30px;
             transition: var(--transition);
-            border-left: 5px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .layer:hover {
+
+        .tier:hover {
             transform: translateX(10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .layer-number {
+
+        .tier-number {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(37, 99, 235, 0.2);
-            color: var(--primary-blue);
-            font-weight: 800;
-            font-size: 1.5rem;
-            min-width: 80px;
-        }
-        
-        .layer-content {
-            padding: 25px;
-            flex-grow: 1;
-        }
-        
-        .layer-title {
-            font-size: 1.3rem;
+            font-size: 24px;
             font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tier-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tier-content p {
+            color: var(--gray);
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-align: left;
+            padding: 20px;
+        }
+
+        th:first-child {
+            border-radius: var(--radius) 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 var(--radius) 0 0;
+        }
+
+        th.vibemetric {
+            background-color: var(--primary-dark);
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .x-mark {
+            color: #EF4444;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background-color: rgba(124, 58, 237, 0.05);
+            font-weight: 600;
+        }
+
+        /* Performance Metrics */
+        .metrics {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
             margin-bottom: 10px;
-            color: var(--light-text);
+            line-height: 1;
         }
-        
-        .layer-desc {
-            color: var(--gray-text);
+
+        .metric-label {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
-        
+
+        .metric-desc {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            background-color: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: 2px solid white;
+        }
+
+        .btn-outline-white:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
         /* Footer */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.3);
+        footer {
+            background-color: var(--dark);
+            color: white;
             padding: 60px 0 30px;
-            margin-top: 60px;
         }
-        
-        .footer-content {
+
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
-        .footer-column h4 {
-            font-size: 1.2rem;
+
+        .footer-col h3 {
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 20px;
-            color: var(--light-text);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 12px;
         }
-        
+
         .footer-links a {
-            color: var(--gray-text);
+            color: #D1D5DB;
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .footer-links a:hover {
-            color: var(--primary-blue);
-        }
-        
-        .footer-contact p {
-            margin-bottom: 15px;
-            color: var(--gray-text);
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--primary-blue);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--dark-card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-text);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-blue);
             color: white;
         }
-        
+
+        .footer-contact p {
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray-text);
-            font-size: 0.9rem;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
         }
-        
-        /* Responsive Styles */
+
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 40px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
             }
             
             .nav-links {
                 display: none;
             }
             
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .cta-button, .secondary-button {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
+            .nav-cta {
+                display: none;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
+            .hero-text h1 {
+                font-size: 32px;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .section-title h2 {
+                font-size: 28px;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .services-tiers {
+            .hero-cta, .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .tier-card {
-                width: 100%;
-                max-width: 400px;
+            .hero-stats {
+                flex-wrap: wrap;
             }
             
-            .comparison-container {
-                padding: 25px;
-            }
-            
-            .comparison-header {
+            .tier {
                 flex-direction: column;
+                text-align: center;
                 gap: 20px;
             }
             
-            .comparison-item .traditional, 
-            .comparison-item .ai {
-                width: 100%;
-            }
-            
-            .comparison-item {
-                flex-direction: column;
-                gap: 10px;
+            .tier:hover {
+                transform: translateY(-5px);
             }
         }
-        
+
         @media (max-width: 576px) {
-            .container {
-                padding: 0 15px;
-            }
-            
             .hero {
-                padding: 130px 0 50px;
+                padding: 140px 0 80px;
             }
             
-            .performance-ticker {
-                flex-direction: column;
-                gap: 25px;
+            .value-prop, .creative-system, .comparison, .metrics, .cta-section {
+                padding: 60px 0;
             }
             
-            .calculator-container {
-                padding: 25px;
-            }
-            
-            .footer-content {
+            .value-cards, .metrics-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .stat-value {
+                font-size: 24px;
+            }
+            
+            .metric-value {
+                font-size: 36px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+    <!-- Header & Navigation -->
+    <header>
         <div class="container">
-            <div class="header-content">
-                <div class="logo">Vibe<span>metric</span></div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Case Studies</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-                <button class="cta-button">Get AI Audit</button>
+            <div class="nav-container">
+                <a href="/" class="logo">Vibe<span>Metric</span>.io</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/packages">Packages</a>
+                    <a href="/proof">Proof</a>
+                    <a href="/book-audit" class="nav-cta">Book Free Audit</a>
+                </div>
+                
+                <a href="/book-audit" class="nav-cta desktop-only">Book Free Audit</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>Human Strategy, AI Execution, Maximum Growth</h1>
-                <p class="hero-subtitle">We automate your digital marketing with AI agents, delivering 3x ROI while reducing costs by 40-60%</p>
-                <div class="hero-buttons">
-                    <button class="cta-button">Book Your Free Growth Audit</button>
-                    <button class="secondary-button">See Platform Demo</button>
-                </div>
-                <div class="trust-indicator">
-                    <i class="fas fa-check-circle"></i>
-                    Serving Malaysian businesses with $4K+ monthly revenue
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof Section -->
-    <section class="social-proof">
-        <div class="container">
-            <h2 class="section-title">Trusted by Growth-Focused Malaysian Businesses</h2>
-            
-            <div class="client-logos">
-                <div class="client-logo">
-                    <div class="logo-circle">SM</div>
-                    <div class="logo-name">StyleMY</div>
-                    <div class="logo-result">4.7x ROI</div>
-                </div>
-                <div class="client-logo">
-                    <div class="logo-circle">BF</div>
-                    <div class="logo-name">BizFlow MY</div>
-                    <div class="logo-result">58% CAC Reduction</div>
-                </div>
-                <div class="client-logo">
-                    <div class="logo-circle">RS</div>
-                    <div class="logo-name">Rasa Selatan</div>
-                    <div class="logo-result">65% Revenue Increase</div>
-                </div>
-                <div class="client-logo">
-                    <div class="logo-circle">ES</div>
-                    <div class="logo-name">EduSmart Malaysia</div>
-                    <div class="logo-result">42% Cost Reduction</div>
-                </div>
-                <div class="client-logo">
-                    <div class="logo-circle">UL</div>
-                    <div class="logo-name">Urban Living Group</div>
-                    <div class="logo-result">55% Faster Sales Cycle</div>
-                </div>
-            </div>
-            
-            <div class="performance-ticker">
-                <div class="metric">
-                    <div class="metric-value">87%</div>
-                    <div class="metric-label">Client Retention</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">$2.4M</div>
-                    <div class="metric-label">Automated Ad Spend</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">24/7</div>
-                    <div class="metric-label">AI Monitoring</div>
-                </div>
-            </div>
-            
-            <div class="cta-center">
-                <button class="secondary-button">See detailed results</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Difference Section -->
-    <section class="ai-difference">
-        <div class="container">
-            <h2 class="section-title">How Our AI Engine Outperforms Traditional Marketing</h2>
-            
-            <div class="comparison-container">
-                <div class="comparison-header">
-                    <div class="comparison-title traditional-title">TRADITIONAL AGENCY</div>
-                    <div class="comparison-title ai-title">VIBEMETRIC AI ENGINE</div>
-                </div>
-                
-                <div class="comparison-item">
-                    <div class="traditional">
-                        <div class="comparison-label">Speed</div>
-                        <div class="comparison-value traditional-value">2-3 weeks</div>
-                    </div>
-                    <div class="ai">
-                        <div class="comparison-label">Speed</div>
-                        <div class="comparison-value ai-value">48 hours</div>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <div class="traditional">
-                        <div class="comparison-label">Cost Structure</div>
-                        <div class="comparison-value traditional-value">70% labor</div>
-                    </div>
-                    <div class="ai">
-                        <div class="comparison-label">Cost Structure</div>
-                        <div class="comparison-value ai-value">30% AI systems</div>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <div class="traditional">
-                        <div class="comparison-label">Testing</div>
-                        <div class="comparison-value traditional-value">2-3 A/B tests</div>
-                    </div>
-                    <div class="ai">
-                        <div class="comparison-label">Testing</div>
-                        <div class="comparison-value ai-value">50+ simultaneous</div>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <div class="traditional">
-                        <div class="comparison-label">Optimization</div>
-                        <div class="comparison-value traditional-value">Weekly</div>
-                    </div>
-                    <div class="ai">
-                        <div class="comparison-label">Optimization</div>
-                        <div class="comparison-value ai-value">Real-time 24/7</div>
-                    </div>
-                </div>
-                
-                <div class="comparison-item">
-                    <div class="traditional">
-                        <div class="comparison-label">Reporting</div>
-                        <div class="comparison-value traditional-value">Manual</div>
-                    </div>
-                    <div class="ai">
-                        <div class="comparison-label">Reporting</div>
-                        <div class="comparison-value ai-value">Predictive analytics</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="cta-center">
-                <button class="cta-button">Calculate your potential savings</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Choose Your AI Partnership Level</h2>
-            <p class="services-subtitle">Select the tier that matches your business growth stage and goals</p>
-            
-            <div class="services-tiers">
-                <!-- Tier 1 -->
-                <div class="tier-card">
-                    <div class="tier-badge badge-enterprise">ENTERPRISE TIER</div>
-                    <h3>AI In-House Team</h3>
-                    <p class="tier-for">For: Established businesses ($20K+ monthly revenue)</p>
-                    <div class="tier-price">$2,500-$5,300<span style="font-size: 1rem; color: var(--gray-text);">/month</span></div>
-                    <p class="tier-term">Minimum 12-month commitment</p>
-                    <div class="tier-button">
-                        <button class="cta-button" style="width: 100%;">Book Enterprise Strategy Call</button>
-                    </div>
-                </div>
-                
-                <!-- Tier 2 -->
-                <div class="tier-card">
-                    <div class="tier-badge badge-growth">GROWTH TIER</div>
-                    <h3>Growth Partner</h3>
-                    <p class="tier-for">For: Scaling businesses ($10K-$20K monthly revenue)</p>
-                    <div class="tier-price">$1,700-$3,200<span style="font-size: 1rem; color: var(--gray-text);">/month</span></div>
-                    <p class="tier-term">Minimum 6-month commitment</p>
-                    <div class="tier-button">
-                        <button class="cta-button" style="width: 100%;">Schedule Growth Consultation</button>
-                    </div>
-                </div>
-                
-                <!-- Tier 3 -->
-                <div class="tier-card">
-                    <div class="tier-badge badge-starter">STARTER TIER</div>
-                    <h3>Campaign Services</h3>
-                    <p class="tier-for">For: Testing & specific projects ($4K+ monthly revenue)</p>
-                    <div class="tier-price">$740-$1,270<span style="font-size: 1rem; color: var(--gray-text);">/campaign</span></div>
-                    <p class="tier-term">Minimum 1 campaign</p>
-                    <div class="tier-button">
-                        <button class="cta-button" style="width: 100%;">Start Campaign Audit</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="qualifier-note">
-                <i class="fas fa-info-circle"></i> Minimum 3-month commitment for measurable results
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Calculator -->
-    <section class="roi-calculator">
-        <div class="container">
-            <div class="calculator-container">
-                <h2 class="calculator-title">Calculate Your Potential ROI</h2>
-                
-                <div class="calculator-inputs">
-                    <div class="input-group">
-                        <label for="ad-spend">Current Monthly Ad Spend</label>
-                        <div class="slider-container">
-                            <span class="slider-value" id="spend-value">$10,000</span>
-                            <input type="range" id="ad-spend" min="1000" max="100000" step="1000" value="10000">
-                        </div>
+                <div class="hero-text">
+                    <h1>Your AI-Powered <span>Creative System</span> at 1/5 the Cost</h1>
+                    <p>A complete creative strategy & execution team that works inside your WhatsApp, Slack, and social accounts — with full control and at the price of one junior Malaysian hire.</p>
+                    
+                    <div class="hero-cta">
+                        <a href="/book-audit" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i> Get Your Free Creative Audit
+                        </a>
+                        <a href="#how-it-works" class="btn-secondary">
+                            <i class="fas fa-play-circle"></i> See How It Works
+                        </a>
                     </div>
                     
-                    <div class="input-group">
-                        <label for="industry">Industry</label>
-                        <select id="industry">
-                            <option value="ecommerce">E-commerce</option>
-                            <option value="saas">SaaS</option>
-                            <option value="fb">F&B</option>
-                            <option value="education">Education</option>
-                            <option value="property">Property</option>
-                            <option value="retail">Retail</option>
-                        </select>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label for="team-size">Current Marketing Team Size</label>
-                        <select id="team-size">
-                            <option value="0">0</option>
-                            <option value="1-2">1-2</option>
-                            <option value="3-5">3-5</option>
-                            <option value="5+">5+</option>
-                        </select>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">1/5</div>
+                            <div class="stat-label">Cost of Local Hire</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">24/7</div>
+                            <div class="stat-label">Coverage & Support</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">100%</div>
+                            <div class="stat-label">Client Control</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">$0</div>
+                            <div class="stat-label">Pivot Fees</div>
+                        </div>
                     </div>
                 </div>
                 
-                <button class="calculate-button" id="calculate-btn">Calculate My ROI</button>
-                
-                <div class="results-container" id="results-container">
-                    <h3 class="results-title">Your Projected Results with Vibemetric</h3>
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <h4 id="roi-result">3.4x</h4>
-                            <p>Projected ROI Increase</p>
-                        </div>
-                        <div class="result-item">
-                            <h4 id="savings-result">52%</h4>
-                            <p>Potential Cost Savings</p>
-                        </div>
-                        <div class="result-item">
-                            <h4 id="time-result">20</h4>
-                            <p>Hours Recovered Per Week</p>
-                        </div>
-                    </div>
-                    
-                    <div class="smart-cta">
-                        <button class="cta-button" id="smart-cta-button">Book Enterprise Demo</button>
+                <div class="hero-visual">
+                    <!-- This would typically be an image or illustration -->
+                    <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); height: 300px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: 600;">
+                        AI + Human Creative System
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technology Preview -->
-    <section class="technology-preview">
+    <!-- Value Proposition -->
+    <section class="value-prop">
         <div class="container">
-            <h2 class="section-title">Powered by Our 4-Layer AI Engine</h2>
-            <p class="tech-subtitle">Explore the technology that drives predictable growth</p>
+            <div class="section-title">
+                <h2>Why Smart Malaysian SMEs Are Switching</h2>
+                <p>The real numbers behind the old way vs. the VibeMetric way</p>
+            </div>
             
-            <div class="layers-container">
-                <div class="layer">
-                    <div class="layer-number">1</div>
-                    <div class="layer-content">
-                        <h3 class="layer-title">Data Foundation</h3>
-                        <p class="layer-desc">Clean, unified customer data from all your marketing channels</p>
+            <div class="value-cards">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Malaysian In-House Hire</h3>
+                    <p>Limited creative capacity, high turnover, and full HR overhead.</p>
+                    <div class="value-price">$16K–$24K+/year</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Freelancers & Consultants</h3>
+                    <p>Beautiful concepts but execution gaps. You're left to implement.</p>
+                    <div class="value-price">$8K–$16K/year</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Traditional Agency</h3>
+                    <p>Run everything internally. Scope creep fees hit hard. Limited control.</p>
+                    <div class="value-price">$20K–$60K+/year</div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>VibeMetric.io</h3>
+                    <p>Embedded team + AI + n8n automation. Full ownership. Direct WhatsApp management.</p>
+                    <div class="value-price highlight">$6K–$16K/year (1/5th)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative System -->
+    <section class="creative-system" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>The VibeMetric Creative System: 5 Engineered Tiers</h2>
+                <p>Built like a creative pyramid: From brand experience down to data foundation</p>
+            </div>
+            
+            <div class="tiers-container">
+                <div class="tier">
+                    <div class="tier-number">5</div>
+                    <div class="tier-content">
+                        <h3>Brand Experience & Storytelling</h3>
+                        <p>Shape emotions and brand identity for the Malaysian market</p>
                     </div>
                 </div>
                 
-                <div class="layer">
-                    <div class="layer-number">2</div>
-                    <div class="layer-content">
-                        <h3 class="layer-title">MarTech Execution</h3>
-                        <p class="layer-desc">Automated campaign management across all platforms</p>
+                <div class="tier">
+                    <div class="tier-number">4</div>
+                    <div class="tier-content">
+                        <h3>Creative Content Strategy</h3>
+                        <p>Multi-format content creation tailored to Malaysian culture</p>
                     </div>
                 </div>
                 
-                <div class="layer">
-                    <div class="layer-number">3</div>
-                    <div class="layer-content">
-                        <h3 class="layer-title">Revenue Operations</h3>
-                        <p class="layer-desc">Accurate attribution and continuous optimization</p>
+                <div class="tier">
+                    <div class="tier-number">3</div>
+                    <div class="tier-content">
+                        <h3>AI-Augmented Creativity</h3>
+                        <p>Combine artificial intelligence with human creative intuition</p>
                     </div>
                 </div>
                 
-                <div class="layer">
-                    <div class="layer-number">4</div>
-                    <div class="layer-content">
-                        <h3 class="layer-title">AI Intelligence</h3>
-                        <p class="layer-desc">Predictive decision making and autonomous optimization</p>
+                <div class="tier">
+                    <div class="tier-number">2</div>
+                    <div class="tier-content">
+                        <h3>Multi-Channel Creative Execution</h3>
+                        <p>Bring creativity to life across all platforms</p>
+                    </div>
+                </div>
+                
+                <div class="tier">
+                    <div class="tier-number">1</div>
+                    <div class="tier-content">
+                        <h3>Creative Data Foundation</h3>
+                        <p>Solid foundation for all creative decisions</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>Feature Comparison</h2>
+                <p>See exactly what you get with each approach</p>
+            </div>
             
-            <div class="cta-center">
-                <button class="cta-button">Explore Our Technology</button>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>In-House Hire</th>
+                            <th>Freelancers</th>
+                            <th>Agency</th>
+                            <th class="vibemetric">VibeMetric</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Annual Cost (min)</strong></td>
+                            <td>$16K–$24K+</td>
+                            <td>$8K–$16K</td>
+                            <td>$20K–$60K+</td>
+                            <td class="highlight">$6K–$16K (1/5th)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Execution</strong></td>
+                            <td>Limited capacity</td>
+                            <td>Limited to scope</td>
+                            <td>None (deck only)</td>
+                            <td class="check">100% embedded daily</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Control</strong></td>
+                            <td class="check">100% (internal)</td>
+                            <td class="x-mark">Low</td>
+                            <td class="x-mark">0%</td>
+                            <td class="check">100% direct via WhatsApp</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automation</strong></td>
+                            <td>Manual</td>
+                            <td class="x-mark">Black-box</td>
+                            <td class="x-mark">None</td>
+                            <td class="check">Open-source n8n (you own)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pivot Fees</strong></td>
+                            <td>N/A</td>
+                            <td class="x-mark">Frequent</td>
+                            <td class="x-mark">Very common</td>
+                            <td class="check">Zero — guaranteed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Malaysian Market Understanding</strong></td>
+                            <td class="check">High</td>
+                            <td>Varies</td>
+                            <td>Limited</td>
+                            <td class="check">Deep cultural insight</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="metrics">
+        <div class="container">
+            <div class="section-title">
+                <h2>System Performance Benchmarks</h2>
+                <p>Results from applying our creative system to Malaysian businesses</p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">+420%</div>
+                    <div class="metric-label">Content Output</div>
+                    <div class="metric-desc">Quality content production increased from 5 to 25+ pieces/month</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">+325%</div>
+                    <div class="metric-label">Engagement Growth</div>
+                    <div class="metric-desc">Average engagement rate increased from 1.2% to 5.1%</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">+180%</div>
+                    <div class="metric-label">Conversion Rate</div>
+                    <div class="metric-desc">Content conversion rate improved from 0.8% to 2.25%</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-value">-65%</div>
+                    <div class="metric-label">Creative Costs</div>
+                    <div class="metric-desc">Monthly creative production costs reduced from $3,000 to $1,050</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Creative Output?</h2>
+                <p>In your free 30-minute audit, we'll analyze your current content performance and show exactly how our system would impact your specific numbers.</p>
+                
+                <div class="cta-buttons">
+                    <a href="/book-audit" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i> Book My Free Creative Audit
+                    </a>
+                    <a href="/proof" class="btn-outline-white">
+                        <i class="fas fa-chart-bar"></i> See Case Studies
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px;">
+                    <i class="fas fa-shield-alt"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day creative roadmap
+                </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h4>VIBEMETRIC</h4>
-                    <p style="color: var(--gray-text); margin-bottom: 20px;">Human Strategy, AI Execution, Maximum Growth</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VibeMetric.io</h3>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">AI-powered creative system for Malaysian SMEs. 24/7 coverage with GMT+8 business hours overlap.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>QUICK LINKS</h4>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Technology</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Case Studies</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/proof">Proof</a></li>
+                        <li><a href="/book-audit">Book Free Audit</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>RESOURCES</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">AI Marketing Blog</a></li>
-                        <li><a href="#">ROI Calculator</a></li>
-                        <li><a href="#">Free Tools</a></li>
-                        <li><a href="#">Whitepapers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4>CONTACT</h4>
+                <div class="footer-col">
+                    <h3>Contact</h3>
                     <div class="footer-contact">
-                        <p><i class="fas fa-envelope"></i> hello@vibemetric.com</p>
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.io</p>
                         <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
+                        <p><i class="fab fa-whatsapp"></i> +60 12-XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Based in Malaysia</p>
                     </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Language Support</h3>
+                    <ul class="footer-links">
+                        <li>Bahasa Malaysia</li>
+                        <li>English</li>
+                        <li>Mandarin</li>
+                        <li>Vietnamese (Technical)</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 Vibemetric. All rights reserved. | PDPA Compliant • ISO 27001 Certified</p>
+                <p>© 2025 VibeMetric.io. All rights reserved. • 30-Day Risk-Free Trial for qualified clients. • Strict qualification ensures best fit for both parties.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // ROI Calculator Logic
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '1000';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (window.innerWidth <= 992 && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('navLinks').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Update year in footer
         document.addEventListener('DOMContentLoaded', function() {
-            const adSpendSlider = document.getElementById('ad-spend');
-            const spendValue = document.getElementById('spend-value');
-            const calculateBtn = document.getElementById('calculate-btn');
-            const resultsContainer = document.getElementById('results-container');
-            const roiResult = document.getElementById('roi-result');
-            const savingsResult = document.getElementById('savings-result');
-            const timeResult = document.getElementById('time-result');
-            const smartCtaButton = document.getElementById('smart-cta-button');
-            const industrySelect = document.getElementById('industry');
-            const teamSizeSelect = document.getElementById('team-size');
-            
-            // Update slider value display
-            adSpendSlider.addEventListener('input', function() {
-                const value = parseInt(this.value);
-                spendValue.textContent = '$' + value.toLocaleString();
-            });
-            
-            // Calculate ROI
-            calculateBtn.addEventListener('click', function() {
-                const adSpend = parseInt(adSpendSlider.value);
-                const industry = industrySelect.value;
-                const teamSize = teamSizeSelect.value;
-                
-                // Calculate results based on inputs
-                let roiMultiplier;
-                let savingsPercentage;
-                let hoursRecovered;
-                
-                // ROI multiplier based on ad spend
-                if (adSpend < 5000) {
-                    roiMultiplier = 2.8;
-                } else if (adSpend < 20000) {
-                    roiMultiplier = 3.2;
-                } else if (adSpend < 50000) {
-                    roiMultiplier = 3.6;
-                } else {
-                    roiMultiplier = 4.2;
-                }
-                
-                // Savings percentage based on team size
-                if (teamSize === '0') {
-                    savingsPercentage = 40;
-                } else if (teamSize === '1-2') {
-                    savingsPercentage = 48;
-                } else if (teamSize === '3-5') {
-                    savingsPercentage = 55;
-                } else {
-                    savingsPercentage = 60;
-                }
-                
-                // Hours recovered based on team size
-                if (teamSize === '0') {
-                    hoursRecovered = 15;
-                } else if (teamSize === '1-2') {
-                    hoursRecovered = 20;
-                } else if (teamSize === '3-5') {
-                    hoursRecovered = 23;
-                } else {
-                    hoursRecovered = 25;
-                }
-                
-                // Update results display
-                roiResult.textContent = roiMultiplier.toFixed(1) + 'x';
-                savingsResult.textContent = savingsPercentage + '%';
-                timeResult.textContent = hoursRecovered;
-                
-                // Show results container
-                resultsContainer.classList.add('active');
-                
-                // Update smart CTA based on ad spend
-                if (adSpend > 10000) {
-                    smartCtaButton.textContent = 'Book Enterprise Demo';
-                } else if (adSpend >= 4000) {
-                    smartCtaButton.textContent = 'Schedule Growth Audit';
-                } else {
-                    smartCtaButton.textContent = 'Download Free AI Marketing Guide';
-                }
-                
-                // Scroll to results
-                resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            });
-            
-            // Smart CTA button click
-            smartCtaButton.addEventListener('click', function() {
-                const adSpend = parseInt(adSpendSlider.value);
-                
-                if (adSpend > 10000) {
-                    alert('Redirecting to Enterprise Demo booking...');
-                } else if (adSpend >= 4000) {
-                    alert('Redirecting to Growth Audit booking...');
-                } else {
-                    alert('Downloading Free AI Marketing Guide...');
-                }
-            });
-            
-            // Header CTA button click
-            document.querySelector('.header .cta-button').addEventListener('click', function() {
-                alert('Redirecting to AI Audit booking form...');
-            });
-            
-            // Hero CTA buttons
-            document.querySelectorAll('.hero-buttons .cta-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    alert('Redirecting to Growth Audit booking...');
-                });
-            });
-            
-            document.querySelector('.hero-buttons .secondary-button').addEventListener('click', function() {
-                alert('Opening Platform Demo...');
-            });
-            
-            // Other CTA buttons
-            document.querySelectorAll('.cta-button:not(.hero-buttons .cta-button):not(.header .cta-button):not(#calculate-btn):not(#smart-cta-button)').forEach(button => {
-                button.addEventListener('click', function() {
-                    const buttonText = this.textContent;
-                    alert(`Action: ${buttonText}`);
-                });
-            });
-            
-            document.querySelectorAll('.secondary-button:not(.hero-buttons .secondary-button)').forEach(button => {
-                button.addEventListener('click', function() {
-                    const buttonText = this.textContent;
-                    alert(`Action: ${buttonText}`);
-                });
-            });
-            
-            // Tier card buttons
-            document.querySelectorAll('.tier-button .cta-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const tier = this.closest('.tier-card').querySelector('h3').textContent;
-                    alert(`Booking consultation for: ${tier}`);
-                });
-            });
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', new Date().getFullYear());
+            }
         });
     </script>
 </body>

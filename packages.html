@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages | VibeMetric.io - AI-Powered Creative Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .page-hero {
+            padding: 160px 0 80px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .page-hero h1 span {
+            color: var(--primary);
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Packages Grid */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .package-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+
+        .package-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 40px;
+            font-size: 14px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+
+        .package-header {
+            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+            text-align: center;
+        }
+
+        .package-header h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .package-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .package-price span {
+            font-size: 16px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .package-description {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .package-features {
+            padding: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item i {
+            color: var(--secondary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .feature-item.disabled {
+            opacity: 0.5;
+        }
+
+        .feature-item.disabled i {
+            color: var(--gray);
+        }
+
+        .package-cta {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+
+        .btn-package {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background-color: var(--light-gray);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background-color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            vertical-align: middle;
+        }
+
+        th:first-child {
+            text-align: left;
+            border-radius: var(--radius) 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 var(--radius) 0 0;
+        }
+
+        th.vibemetric {
+            background-color: var(--primary-dark);
+        }
+
+        td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .x-mark {
+            color: #EF4444;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .limited {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .highlight {
+            background-color: rgba(124, 58, 237, 0.05);
+            font-weight: 600;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background-color: white;
+        }
+
+        .calculator-container {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calculator-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group select,
+        .form-group input {
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .slider-container {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--light-gray);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-values {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .calculator-result {
+            background: linear-gradient(135deg, #F3E8FF 0%, #E0E7FF 100%);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .calculator-result.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-package {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .result-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .result-roi {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .result-cta {
+            margin-top: 20px;
+        }
+
+        /* Pivot Guarantee */
+        .pivot-guarantee {
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .pivot-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pivot-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pivot-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .pivot-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .pivot-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: white;
+        }
+
+        .team-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .member-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 32px;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .member-skills {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .skill-item i {
+            color: var(--secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #D1D5DB;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            color: #D1D5DB;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-cta {
+                display: none;
+            }
+            
+            .page-hero h1 {
+                font-size: 40px;
+            }
+            
+            .package-card.popular {
+                transform: none;
+            }
+            
+            .package-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .team-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .pivot-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-badge {
+                right: -35px;
+                padding: 6px 35px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-hero {
+                padding: 140px 0 60px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .package-header,
+            .package-features,
+            .package-cta {
+                padding: 20px;
+            }
+            
+            .calculator-container {
+                padding: 20px;
+            }
+            
+            .package-price {
+                font-size: 36px;
+            }
+            
+            .result-price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="/" class="logo">Vibe<span>Metric</span>.io</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-links" id="navLinks">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/packages" class="active">Packages</a>
+                    <a href="/proof">Proof</a>
+                    <a href="/book-audit" class="nav-cta">Book Free Audit</a>
+                </div>
+                
+                <a href="/book-audit" class="nav-cta desktop-only">Book Free Audit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Packages</span>
+            </div>
+            
+            <h1>Choose the <span>Creative Engine</span> That Fits Your Business</h1>
+            <p>Every package includes the full Creative Performance Loop, Pivot Guarantee (zero scope-creep fees), and direct WhatsApp management.</p>
+            
+            <div style="margin-top: 40px;">
+                <a href="#packages" class="btn-white" style="margin-right: 15px; background-color: var(--primary); color: white;">
+                    <i class="fas fa-box-open"></i> View Packages
+                </a>
+                <a href="#calculator" class="btn-white" style="background-color: transparent; border: 2px solid white;">
+                    <i class="fas fa-calculator"></i> Calculate ROI
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Grid -->
+    <section id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Four Creative Levels. One Pivot Guarantee.</h2>
+                <p>Start where you are. Scale as you grow. Upgrade anytime.</p>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Creative Basic -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Creative Basic</h3>
+                        <div class="package-price">$320<span>/month</span></div>
+                        <p class="package-description">Perfect for testing the creative system</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Creative Audit & Setup</strong><br>
+                                <small>Foundation assessment and basic tracking</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>1 Creative Channel Focus</strong><br>
+                                <small>Choose: Social Media, Blog, or Email</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>5 Creative Assets/Month</strong><br>
+                                <small>Quality content (images + copy)</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Access to Shared Creative Specialist</strong><br>
+                                <small>Part-time creative support</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>n8n Basic Workflows</strong><br>
+                                <small>Up to 3 automation workflows</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Weekly WhatsApp Check-ins</strong><br>
+                                <small>Regular progress updates</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <a href="/book-audit" class="btn-package btn-secondary">See If This Fits</a>
+                    </div>
+                </div>
+                
+                <!-- Creative Strategy -->
+                <div class="package-card popular">
+                    <div class="package-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Creative Strategy</h3>
+                        <div class="package-price">$957 – $1,383<span>/month</span></div>
+                        <p class="package-description">Dedicated creative team + automation</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Dedicated Creative Strategist</strong><br>
+                                <small>Your main point of contact</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>2 Creative Channels</strong><br>
+                                <small>Social Media + Blog or Email Marketing</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>15-20 Creative Assets/Month</strong><br>
+                                <small>Multi-format content production</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Full Tier 2 & 3 Execution</strong><br>
+                                <small>Complete creative strategy implementation</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Standard n8n Workflows</strong><br>
+                                <small>Unlimited automation workflows</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Pivot Guarantee Included</strong><br>
+                                <small>Zero fees for strategy changes</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Direct WhatsApp/Slack Management</strong><br>
+                                <small>Daily communication and updates</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Weekly Strategy Sessions</strong><br>
+                                <small>Regular planning and optimization</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <a href="/book-audit" class="btn-package btn-primary">Get My Custom Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Creative Full Stack -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Creative Full Stack</h3>
+                        <div class="package-price">$1,809 – $2,234<span>/month</span></div>
+                        <p class="package-description">Multi-channel + creative operations</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Full 5-Tier Creative System</strong><br>
+                                <small>Complete creative ecosystem</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>3-4 Channels A-Z Execution</strong><br>
+                                <small>Comprehensive multi-channel strategy</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>30-40 Creative Assets/Month</strong><br>
+                                <small>High-volume quality content</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Creative Ops Integration</strong><br>
+                                <small>CRM + Analytics synchronization</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Advanced Creative LTV Scoring</strong><br>
+                                <small>Predictive content performance models</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Priority Support</strong><br>
+                                <small>4-hour response time guarantee</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Quarterly Planning Sessions</strong><br>
+                                <small>Strategic roadmap development</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Custom Dashboard Setup</strong><br>
+                                <small>Real-time performance tracking</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <a href="/book-audit" class="btn-package btn-primary">Get My Custom Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Creative Premium -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Creative Premium</h3>
+                        <div class="package-price">$2,553+<span>/month</span></div>
+                        <p class="package-description">Predictive growth & LTV guarantee</p>
+                    </div>
+                    
+                    <div class="package-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>All Full Stack Features</strong><br>
+                                <small>Plus premium enhancements</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Dedicated Creative Intelligence Analyst</strong><br>
+                                <small>Expert data-driven insights</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Full Predictive LTV & Churn Models</strong><br>
+                                <small>Advanced creative performance forecasting</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Custom AI Agent</strong><br>
+                                <small>Trained on your brand voice</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Custom API & System Integrations</strong><br>
+                                <small>Seamless workflow automation</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Quarterly Business Review + Forecast</strong><br>
+                                <small>Executive-level strategic planning</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Executive Dashboard</strong><br>
+                                <small>Real-time KPI monitoring</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>24/7 Priority Support</strong><br>
+                                <small>Always available assistance</small>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Custom Automation Development</strong><br>
+                                <small>Tailored creative workflows</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="package-cta">
+                        <a href="/book-audit" class="btn-package btn-primary">Get My Custom Quote</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: var(--gray); font-size: 14px;">
+                    <i class="fas fa-info-circle"></i> All prices in USD. Converted from Malaysian Ringgit at approximate rate 1 USD = 4.7 RM.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>See Exactly What's Included Across All 5 Tiers</h2>
+                <p>Compare feature coverage across packages at a glance</p>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>5-Tier Creative Feature</th>
+                            <th>Creative Basic</th>
+                            <th>Creative Strategy</th>
+                            <th class="vibemetric">Creative Full Stack</th>
+                            <th>Creative Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Tier 5: Brand Experience</strong></td>
+                            <td class="limited">Basic Setup</td>
+                            <td class="check">Full Strategy</td>
+                            <td class="check">Advanced</td>
+                            <td class="check">Custom</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 4: Content Strategy</strong></td>
+                            <td class="limited">1 Channel</td>
+                            <td class="check">2 Channels</td>
+                            <td class="check">Multi-channel</td>
+                            <td class="check">Full Suite</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 3: AI Creativity</strong></td>
+                            <td class="limited">Basic</td>
+                            <td class="check">Standard</td>
+                            <td class="check">Advanced</td>
+                            <td class="check">Optimized</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 2: Multi-channel Execution</strong></td>
+                            <td>1 Channel</td>
+                            <td>2 Channels</td>
+                            <td class="highlight">3-4 Channels</td>
+                            <td>All Channels</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tier 1: Data Foundation</strong></td>
+                            <td class="limited">Basic</td>
+                            <td class="check">Full</td>
+                            <td class="check">Full</td>
+                            <td class="check">Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dedicated Team Member</strong></td>
+                            <td>Shared</td>
+                            <td class="check">Yes</td>
+                            <td class="check">Yes</td>
+                            <td class="check">Yes + Specialist</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pivot Guarantee</strong></td>
+                            <td class="check">Yes</td>
+                            <td class="check">Yes</td>
+                            <td class="check">Yes</td>
+                            <td class="check">Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Direct WhatsApp/Slack Management</strong></td>
+                            <td>Weekly</td>
+                            <td>Daily</td>
+                            <td class="highlight">Daily</td>
+                            <td>24/7</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Creative Assets/Month</strong></td>
+                            <td>5</td>
+                            <td>15-20</td>
+                            <td class="highlight">30-40</td>
+                            <td>50+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Video Content</strong></td>
+                            <td class="x-mark">No</td>
+                            <td class="limited">Optional</td>
+                            <td class="check">Monthly</td>
+                            <td class="check">Campaign-Based</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Your Perfect Creative Package Match</h2>
+                <p>Calculate which package delivers the best ROI for your business size</p>
+            </div>
+            
+            <div class="calculator-container">
+                <h3 style="text-align: center; margin-bottom: 30px; font-size: 24px;">Package Recommendation Calculator</h3>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 40px;">Answer three questions to see which package makes the most sense for your creative needs</p>
+                
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="revenue">Current Monthly Revenue</label>
+                        <select id="revenue">
+                            <option value="10000">Under $10,000/month</option>
+                            <option value="25000">$10,000 - $25,000/month</option>
+                            <option value="50000" selected>$25,000 - $50,000/month</option>
+                            <option value="100000">$50,000 - $100,000/month</option>
+                            <option value="200000">Over $100,000/month</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="team">Creative/Marketing Team Size</label>
+                        <select id="team">
+                            <option value="0">No dedicated team</option>
+                            <option value="1">1 person</option>
+                            <option value="2">2 people</option>
+                            <option value="3" selected>3 people</option>
+                            <option value="5">4-5 people</option>
+                            <option value="10">6-10 people</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="spend">Current Monthly Creative/Marketing Spend</label>
+                        <select id="spend">
+                            <option value="1000">Under $1,000/month</option>
+                            <option value="2500">$1,000 - $2,500/month</option>
+                            <option value="5000">$2,500 - $5,000/month</option>
+                            <option value="10000" selected>$5,000 - $10,000/month</option>
+                            <option value="20000">$10,000 - $20,000/month</option>
+                            <option value="50000">Over $20,000/month</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="slider-container">
+                    <label style="display: block; margin-bottom: 15px; font-weight: 600;">Monthly Creative Output Goal</label>
+                    <input type="range" min="5" max="50" value="15" class="slider" id="outputSlider">
+                    <div class="slider-values">
+                        <span>5 assets/month</span>
+                        <span id="sliderValue">15 assets/month</span>
+                        <span>50+ assets/month</span>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn-white" id="calculateBtn" style="background-color: var(--primary); color: white;">
+                        <i class="fas fa-calculator"></i> Calculate My Recommendation
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="calculatorResult">
+                    <h3 class="result-package">CREATIVE STRATEGY</h3>
+                    <div class="result-price">$1,200<span style="font-size: 16px; color: var(--gray);">/month</span></div>
+                    <div class="result-roi">6.8x Projected ROI</div>
+                    <p style="color: var(--gray); margin-bottom: 20px;">Based on your inputs, this package offers the optimal balance of creative output and cost efficiency.</p>
+                    <div class="result-cta">
+                        <a href="/book-audit" class="btn-white" style="background-color: white; color: var(--primary); margin-right: 10px;">
+                            <i class="fas fa-calendar-check"></i> Get Custom Quote
+                        </a>
+                        <a href="#packages" class="btn-white" style="background-color: transparent; color: white; border: 2px solid white;">
+                            <i class="fas fa-box-open"></i> Compare Packages
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pivot Guarantee -->
+    <section class="pivot-guarantee">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pivot Guarantee</h2>
+                <p>Every Package Includes Our No-Pivot-Fee Guarantee</p>
+            </div>
+            
+            <div class="pivot-container">
+                <p style="text-align: center; font-size: 18px; color: var(--gray); max-width: 800px; margin: 0 auto 40px;">
+                    Strategic direction changes? Market shifts? New competitor emerged? We rebuild creative strategy & automation completely — zero extra fees, ever.
+                </p>
+                
+                <div class="pivot-cards">
+                    <div class="pivot-card">
+                        <div class="pivot-value">$0</div>
+                        <div class="pivot-label">Change Fees</div>
+                    </div>
+                    
+                    <div class="pivot-card">
+                        <div class="pivot-value">∞</div>
+                        <div class="pivot-label">Rebuilds Included</div>
+                    </div>
+                    
+                    <div class="pivot-card">
+                        <div class="pivot-value">100%</div>
+                        <div class="pivot-label">Transparency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Dedicated Creative Team From Day 1</h2>
+                <p>No account manager. No tickets. No junior-only team. You manage these senior specialists directly via WhatsApp — just like your own employees.</p>
+            </div>
+            
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="member-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="member-name">Creative Director</div>
+                    <div class="member-role">Brand & Visual Excellence</div>
+                    <div class="member-skills">
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Visual identity system maintenance</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Messaging framework development</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Thought-leadership content creation</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Brand-led campaign strategy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="member-name">AI & Automation Specialist</div>
+                    <div class="member-role">Creative Technology</div>
+                    <div class="member-skills">
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>24/7 AI content generation system</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Custom AI creative machine</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Weekly creative hypotheses + testing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>n8n workflow ownership & training</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="member-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="member-name">Content & Analytics Expert</div>
+                    <div class="member-role">Execution & Optimization</div>
+                    <div class="member-skills">
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Multi-platform content optimization</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Technical SEO + Content strategy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>CRM & Analytics sync setup</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Real-time attribution & reporting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px; padding: 30px; background-color: var(--light-gray); border-radius: var(--radius);">
+                <h3 style="font-size: 20px; margin-bottom: 15px;">All of them report to you — not to an account manager.</h3>
+                <p style="color: var(--gray);">From day 1, in your WhatsApp/Slack workspace, available during Malaysia business hours (GMT+8).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Don't Guess Which Package Is Right For You</h2>
+                <p>In your free 30-minute audit we'll analyze your current creative performance, LTV, and operational costs — then show you exactly which package (and projected ROI) makes the most sense.</p>
+                
+                <div style="margin-top: 40px;">
+                    <a href="/book-audit" class="btn-white">
+                        <i class="fas fa-calendar-alt"></i> Book My Free Audit & Custom Quote
+                    </a>
+                </div>
+                
+                <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">
+                    <i class="fas fa-shield-alt"></i> Zero risk • Takes 30 minutes • You'll leave with your exact numbers
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>VibeMetric.io</h3>
+                    <p style="color: #D1D5DB; margin-bottom: 20px;">AI-powered creative system for Malaysian SMEs. 24/7 coverage with GMT+8 business hours overlap.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/how-it-works">How It Works</a></li>
+                        <li><a href="/packages">Packages</a></li>
+                        <li><a href="/proof">Proof</a></li>
+                        <li><a href="/book-audit">Book Free Audit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Packages</h3>
+                    <ul class="footer-links">
+                        <li><a href="#packages">Creative Basic</a></li>
+                        <li><a href="#packages">Creative Strategy</a></li>
+                        <li><a href="#packages">Creative Full Stack</a></li>
+                        <li><a href="#packages">Creative Premium</a></li>
+                        <li><a href="#calculator">Package Calculator</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> hello@vibemetric.io</p>
+                        <p><i class="fas fa-phone"></i> +60 3-XXXX XXXX</p>
+                        <p><i class="fab fa-whatsapp"></i> +60 12-XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Based in Malaysia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 VibeMetric.io. All rights reserved. • Pivot Guarantee included in all packages. • 30-Day Risk-Free Trial for qualified clients.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.backgroundColor = 'white';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+                navLinks.style.gap = '20px';
+                navLinks.style.zIndex = '1000';
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (window.innerWidth <= 992 && 
+                !navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            }
+        });
+
+        // Slider functionality
+        const outputSlider = document.getElementById('outputSlider');
+        const sliderValue = document.getElementById('sliderValue');
+        
+        outputSlider.addEventListener('input', function() {
+            const value = this.value;
+            sliderValue.textContent = value + (value >= 50 ? '+ assets/month' : ' assets/month');
+        });
+
+        // Calculator functionality
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            const revenue = parseInt(document.getElementById('revenue').value);
+            const team = parseInt(document.getElementById('team').value);
+            const spend = parseInt(document.getElementById('spend').value);
+            const output = parseInt(outputSlider.value);
+            
+            // Calculate package recommendation
+            let recommendedPackage = 'Creative Basic';
+            let monthlyCost = '$320';
+            let roi = '3.2x';
+            
+            if (revenue >= 50000 && (spend >= 5000 || output >= 15)) {
+                recommendedPackage = 'Creative Strategy';
+                monthlyCost = '$1,200';
+                roi = '6.8x';
+            } else if (revenue >= 100000 && (spend >= 10000 || output >= 25)) {
+                recommendedPackage = 'Creative Full Stack';
+                monthlyCost = '$2,000';
+                roi = '8.5x';
+            } else if (revenue >= 200000 && (spend >= 20000 || output >= 35)) {
+                recommendedPackage = 'Creative Premium';
+                monthlyCost = '$2,800+';
+                roi = '10.2x';
+            }
+            
+            // Update result display
+            const resultElement = document.getElementById('calculatorResult');
+            resultElement.querySelector('.result-package').textContent = recommendedPackage.toUpperCase();
+            resultElement.querySelector('.result-price').innerHTML = monthlyCost + '<span style="font-size: 16px; color: var(--gray);">/month</span>';
+            resultElement.querySelector('.result-roi').textContent = roi + ' Projected ROI';
+            
+            // Show result with animation
+            resultElement.classList.add('show');
+            
+            // Scroll to result
+            setTimeout(() => {
+                resultElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 500);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992) {
+                        document.getElementById('navLinks').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Update year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.querySelector('.footer-bottom p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2025', new Date().getFullYear());
+            }
+            
+            // Add active class to current page in mobile menu
+            const currentPage = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Initialize slider value display
+            sliderValue.textContent = outputSlider.value + ' assets/month';
+        });
+    </script>
+</body>
+</html>
